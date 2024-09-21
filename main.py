@@ -2,8 +2,10 @@ import logging
 
 from aiogram import Bot, Dispatcher, executor
 
+import db_user
 import config
 import func_main
+
 bot = Bot(config.BOT_TOKEN)
 dp = Dispatcher(bot)
 logging.basicConfig(level=logging.INFO, filemode='w', filename='py.log',
