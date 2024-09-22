@@ -67,9 +67,10 @@ def convert_images(images, file_name: str):
     image_base64 = images[0]
     image_data = base64.b64decode(image_base64)
     final_path = 'generic_photo_user/' + file_name
+    logging.info(f'Successfully generate {file_name}')
     with open(final_path, 'wb') as file:
         file.write(image_data)
-        logging.info(f'Successfully generate {file_name}')
+
 
 
 
