@@ -3,7 +3,7 @@ import text_answer
 import logging
 import actions
 import db_user
-
+import keyboards
 
 # Функция приветсвия по команде /start
 async def start_bot(messega: types.Message):
@@ -25,10 +25,10 @@ async def add_db_users(message: types.Message, state):
     else:
         #Ответить что данный пользователь уже есть
         logging.warning(f'User {message.from_user.id} is register')
-        await message.answer(text=text_answer.IS_ADD_BD, parse_mode='HTML')
+        await message.answer(text=text_answer.IS_ADD_BD, parse_mode='HTML', reply_markup=keyboards.kb_main_menu)
         await state.finish()
         return
     #поздравить с успещной регистрацией
     logging.info(f'User {message.from_user.id} successfully register')
-    await message.answer(text=text_answer.TRUE_REGISTER_USER, parse_mode='HTML')
+    await message.answer(text=text_answer.TRUE_REGISTER_USER, parse_mode='HTML', reply_markup=keyboards.kb_main_menu)
     await state.finish()
