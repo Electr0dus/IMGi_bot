@@ -20,7 +20,7 @@ class Text2ImageAPI:
         data = response.json()
         return data[0]['id']
 
-    def generate(self, prompt, model, images=1, width=1024, height=1024, negative=None, style: str = 'string'):
+    def generate(self, prompt, model, style: str, images=1, width=1024, height=1024, negative=None, ):
         params = {
             "type": "GENERATE",
             "style": style,
@@ -74,4 +74,4 @@ def convert_images(images, file_name: str):
 
 
 
-generate_image('my_image.png', 'Собака на мотоцикле', style='ANIME')
+generate_image('my_image1.png', 'мотоцикл', style='ANIME')
