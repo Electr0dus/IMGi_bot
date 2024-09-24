@@ -5,7 +5,13 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 import config
 import func_main
+
 import db_user
+import db_set_img
+import db_photo
+import db_rating
+import db_error
+
 import actions
 bot = Bot(config.BOT_TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
@@ -21,6 +27,11 @@ dp.message_handler(state=actions.RegisterAction)(func_main.add_db_users)
 
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
+    db_set_img.create_db() # Создание таблицы с настройками генерации фото
+    db_photo.create_db() # Создание таблицы с хранением сгенерированных фото
+    db_rating.create_db() # Создание таблицы с рейтингом фото
+    db_error.create_db() # Создание таблицы с ошибками, оставленными пользователями
+
     logging.info('START BOT')
     executor.start_polling(dp, skip_updates=True)
 

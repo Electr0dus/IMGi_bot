@@ -2,12 +2,18 @@ from aiogram import types
 import text_answer
 import logging
 import actions
+
 import db_user
+import db_set_img
+import db_photo
+import db_rating
+import db_error
+
 import keyboards
 
 # Функция приветсвия по команде /start
 async def start_bot(messega: types.Message):
-    logging.info('COMMAND "START" username - ' + messega.from_user.username)
+    logging.info(f'COMMAND "START" username - {messega.from_user.username}')  #+ messega.from_user.username
     await messega.answer(text=text_answer.START_BOT, parse_mode='HTML')
 
 # Функция для регистрации /register
@@ -22,6 +28,8 @@ async def add_db_users(message: types.Message, state):
     #проверить на отсутсвие данного пользователя в БД
     if db_user.check_users(message.from_user.id):
         db_user.create(message.from_user.id, username['username'])
+        db_set_img.create_user_id(message.from_user.id)
+        db_photo.create_user_id(message.from_user.id)
     else:
         #Ответить что данный пользователь уже есть
         logging.warning(f'User {message.from_user.id} is register')

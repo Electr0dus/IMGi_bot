@@ -2,7 +2,8 @@ import sqlite3
 
 conn = sqlite3.connect('database.db')
 cursor = conn.cursor()
-
+cursor.execute('PRAGMA foreign_keys=ON')
+conn.commit()
 
 # Создание таблицы для хранения Регестрации пользователей
 def create_db():
@@ -16,8 +17,8 @@ def create_db():
 
 
 # Добавить нового пользователя в таблицу Users
-def create(id, user):
-    cursor.execute('INSERT INTO Users (id_user, username) VALUES (?, ?)', (id, user))
+def create(id_tg, user):
+    cursor.execute('INSERT INTO Users (id_user, username) VALUES (?, ?)', (id_tg, user))
     conn.commit()
 
 
