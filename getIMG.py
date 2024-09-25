@@ -1,9 +1,10 @@
+import asyncio
 import base64
 import json
 import time
 import logging
 import requests
-
+import asyncio
 import config
 
 
@@ -40,38 +41,42 @@ class Text2ImageAPI:
         data = response.json()
         return data['uuid']
 
-    def generation_image(self, request_id, attemps=10, delay=10):
+    async def generation_image(self, request_id, attemps=20, delay=10):
         while attemps > 0:
+            logging.info(f'There are still requests left - {attemps}')
             response = requests.get(self.URL + 'key/api/v1/text2image/status/' + request_id, headers=self.AUTH_HEADERS)
             data = response.json()
             if data['status'] == 'DONE':
                 return data['images']
             attemps -= 1
-            time.sleep(delay)
+            await asyncio.sleep(delay)
+
 
 
 api = Text2ImageAPI('https://api-key.fusionbrain.ai/', config.API_KANDINSKY, config.SECRET_KEY)
 
 
 # Функция для генерации изображения по запросу пользователя
-def generate_image(file_name_user: str, promt: str = 'Кот', width: str = 1024, height: str = 1024,
+async def generate_image(prompt: str = 'Кот', width: str = 1024, height: str = 1024,
                    negative: str = None, style: str = 'string'):
     model_id = api.get_model()
-    uuid = api.generate(prompt=promt, model=model_id, width=width, height=height, negative=negative, style=style)
-    images = api.generation_image(uuid)
-    convert_images(images, file_name=file_name_user)
+    logging.info('START generation image')
+    uuid = api.generate(prompt=prompt, model=model_id, width=width, height=height, negative=negative, style=style)
+    images = await api.generation_image(uuid)
+    convert_images(images)
 
 
 # Конвертировать набор байтов в картинку PNG
-def convert_images(images, file_name: str):
+def convert_images(images):
     image_base64 = images[0]
     image_data = base64.b64decode(image_base64)
-    final_path = 'generic_photo_user/' + file_name
-    logging.info(f'Successfully generate {file_name}')
+    final_path = 'generic_photo_user/user.png'
+    logging.info(f'Successfully generate {final_path}')
     with open(final_path, 'wb') as file:
         file.write(image_data)
 
+# Функция для сохранения сгенерированной фотографии под названием пользователя
+def save_image_user(name_file: str):
+    pass
 
-
-
-generate_image('my_image1.png', 'мотоцикл', style='ANIME')
+# generate_image('my_image2.png', 'мотоцикл')
