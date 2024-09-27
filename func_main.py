@@ -7,7 +7,7 @@ import config
 import getIMG
 import keyboards
 import text_answer
-from IMGi_bot.DB import db_photo, db_user, db_set_img, db_error, db_rating
+from IMGi_bot.DB import db_photo, db_user, db_set_img, db_error, db_rating, db_technikal
 
 bot = Bot(config.BOT_TOKEN)
 
@@ -74,6 +74,8 @@ async def generate_photo(message: types.Message, state):
             # Отправка фото пользователю
             with open(f"generic_photo_user/{data['file_name']}", mode='rb') as file:
                 await bot.send_photo(chat_id=message.from_user.id, photo=file, reply_markup=keyboards.kb_save_img)
+                # Сохранить в БД техническую информацию для дальнейшей работы с ней
+                db_technikal.creat_data_tech(id_user=message.from_user.id, prompt=data['prompt'], name_file=data['file_name'])
         else:
             logging.warning(f"This file is already in the database: {data['file_name']}")
             await message.answer(text=text_answer.ERROR_NAME_FILE, parse_mode='HTML')
@@ -101,4 +103,12 @@ async def save_image(call, state):
 
 # Сгенерировать заново изображение
 async def repeat_image(call: types.CallbackQuery):
-    pass
+    logging.info(f'Image re-engineering {call.from_user.id}')
+    # Получить данные из таблицы для нового запроса фота
+    data_regenerate = db_technikal.get_tech_data(call.from_user.id)
+    await call.message.answer(text=text_answer.DELAY_GEN_IMAGE)
+    await getIMG.generate_image(prompt=data_regenerate[0], file_name=data_regenerate[1])
+    with open(f"generic_photo_user/{data_regenerate[1]}", mode='rb') as file:
+        await bot.send_photo(chat_id=call.from_user.id, photo=file, reply_markup=keyboards.kb_save_img)
+    await call.answer()
+

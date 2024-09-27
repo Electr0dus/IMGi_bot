@@ -6,7 +6,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 import config
 import func_main
 
-from IMGi_bot.DB import db_error, db_rating, db_photo, db_user, db_set_img
+from IMGi_bot.DB import db_error, db_rating, db_photo, db_user, db_set_img, db_technikal
 
 import actions
 
@@ -37,6 +37,7 @@ def main():
     db_photo.create_db() # Создание таблицы с хранением сгенерированных фото
     db_rating.create_db() # Создание таблицы с рейтингом фото
     db_error.create_db() # Создание таблицы с ошибками, оставленными пользователями
+    db_technikal.create_db() # Создание таблицы с технической информацией для действий пользователя со генерированным изображением
 
     logging.info('START BOT')
     executor.start_polling(dp, skip_updates=False)
