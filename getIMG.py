@@ -57,20 +57,20 @@ api = Text2ImageAPI('https://api-key.fusionbrain.ai/', config.API_KANDINSKY, con
 
 
 # Функция для генерации изображения по запросу пользователя
-async def generate_image(prompt: str = 'Кот', width: str = 1024, height: str = 1024,
+async def generate_image(file_name: str, prompt: str = 'Кот', width: str = 1024, height: str = 1024,
                    negative: str = None, style: str = 'string'):
     model_id = api.get_model()
     logging.info('START generation image')
     uuid = api.generate(prompt=prompt, model=model_id, width=width, height=height, negative=negative, style=style)
     images = await api.generation_image(uuid)
-    convert_images(images)
+    convert_images(images, file_name)
 
 
 # Конвертировать набор байтов в картинку PNG
-def convert_images(images):
+def convert_images(images, file_name: str):
     image_base64 = images[0]
     image_data = base64.b64decode(image_base64)
-    final_path = 'generic_photo_user/user.png'
+    final_path = f'generic_photo_user/{file_name}'
     logging.info(f'Successfully generate {final_path}')
     with open(final_path, 'wb') as file:
         file.write(image_data)
@@ -78,5 +78,20 @@ def convert_images(images):
 # Функция для сохранения сгенерированной фотографии под названием пользователя
 def save_image_user(name_file: str):
     pass
+
+# Функция для проверки правильности написания формы файла, если верно вернёт - True, иначе - False
+def check_name_file(file_name: str):
+    for file in file_name:
+        if file == " ":
+            return False
+    new_name_file = file_name.split('.')
+    if len(new_name_file) > 1:
+        if new_name_file[1] == 'png':
+            return True
+        else:
+            return False
+    else:
+        return False
+
 
 # generate_image('my_image2.png', 'мотоцикл')

@@ -1,14 +1,15 @@
-2024-09-25 22:51:20,071 | INFO | START BOT
-2024-09-25 22:51:20,392 | INFO | Bot: IMGAi [@imagesAI_bot]
-2024-09-25 22:51:20,392 | INFO | Start polling.
-2024-09-25 22:51:24,367 | WARNING | User 678552784 is register
-2024-09-25 22:51:29,478 | INFO | START generation image
-2024-09-25 22:51:29,635 | INFO | There are still requests left - 20
-2024-09-25 22:51:39,730 | INFO | There are still requests left - 19
-2024-09-25 22:51:49,810 | INFO | There are still requests left - 18
-2024-09-25 22:51:59,919 | INFO | There are still requests left - 17
-2024-09-25 22:52:10,042 | INFO | There are still requests left - 16
-2024-09-25 22:52:20,135 | INFO | There are still requests left - 15
-2024-09-25 22:52:20,294 | INFO | Successfully generate generic_photo_user/user.png
-2024-09-25 22:53:35,425 | INFO | Stop polling...
-2024-09-25 22:53:35,426 | WARNING | Goodbye!
+2024-09-27 21:56:08,619 | INFO | START BOT
+2024-09-27 21:56:08,910 | INFO | Bot: IMGAi [@imagesAI_bot]
+2024-09-27 21:56:08,910 | INFO | Start polling.
+2024-09-27 21:56:16,098 | WARNING | User 678552784 is register
+2024-09-27 21:56:28,271 | WARNING | Invalid file name: gfdgr
+2024-09-27 21:56:39,275 | WARNING | Invalid file name: fsdff.jpg
+2024-09-27 21:56:46,360 | WARNING | Invalid file name: gfdg. png
+2024-09-27 21:56:52,568 | WARNING | Invalid file name: gffdh .png
+2024-09-27 21:56:58,305 | INFO | START generation image
+2024-09-27 21:56:58,426 | INFO | There are still requests left - 20
+2024-09-27 21:57:08,552 | INFO | There are still requests left - 19
+2024-09-27 21:57:18,654 | INFO | There are still requests left - 18
+2024-09-27 21:57:28,751 | INFO | There are still requests left - 17
+2024-09-27 21:57:38,871 | INFO | There are still requests left - 16
+2024-09-27 21:57:39,025 | INFO | Successfully generate generic_photo_user/bfgbnn.png

@@ -8,3 +8,4 @@ class RegisterAction(StatesGroup):
 # Машина состония для ввода текста сгенерированой картинки
 class GenerateAction(StatesGroup):
     prompt = State()
+    file_name = State()
