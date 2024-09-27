@@ -11,16 +11,9 @@ def create_db():
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS Photo(
         name_photo TEXT,
-        id_user INT PRIMARY KEY,
-        FOREIGN KEY (id_user) REFERENCES Users(id_user)
+        id_user INT
     );
     ''')
-    conn.commit()
-
-
-# Добавление ID пользователя при его регистрации
-def create_user_id(id_tg):
-    cursor.execute('INSERT INTO Photo (id_user) VALUES (?)', (id_tg,))
     conn.commit()
 
 
@@ -41,3 +34,8 @@ def get_all_photo(id_name: int):
     conn.commit()
     all_photo = cursor.fetchall()
     return all_photo[0]
+
+# Сохранить имя сгенерированного фото с id пользователем
+def save_image(id_user: int, name_photo: str):
+    cursor.execute('INSERT INTO Photo (id_user, name_photo) VALUES (?, ?)', (id_user, name_photo))
+    conn.commit()

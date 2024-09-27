@@ -28,3 +28,7 @@ def get_tech_data(id_user: int):
     data = cursor.fetchall()
     return data[0]
 
+# Удалить техническую информацию из БД пользователя по id
+def delete_data_tech(id_user: int):
+    cursor.execute('DELETE FROM Technical WHERE id_user = ?', (id_user,))
+    conn.commit()

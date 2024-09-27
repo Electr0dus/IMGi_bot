@@ -32,3 +32,10 @@ def check_users(id_user):
             if id_user == id_val:
                 return False
     return True
+
+# Получить имя зарегестрированного пользователя по его id
+def get_name_for_id(id_user: str):
+    cursor.execute('SELECT username FROM Users WHERE id_user = ?', (id_user,))
+    conn.commit()
+    data = cursor.fetchall()
+    return data[0]

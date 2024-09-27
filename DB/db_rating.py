@@ -13,12 +13,15 @@ def create_db():
         name_photo TEXT,
         like INT DEFAULT 0,
         id_user INT,
-        username TEXT,
-        FOREIGN KEY (id_user) REFERENCES Users(id_user)
+        username TEXT
     );
     ''')
     conn.commit()
-# FOREIGN KEY (name_photo) REFERENCES Photo(name_photo)
-def create_user_id(id_tg, username):
-    cursor.execute('INSERT INTO Rating (id_user, username) VALUES (?, ?)', (id_tg, username))
+
+
+
+# Сохранить имя сгенерированного фото с id пользователем
+def save_image_rating(id_user: int, name_photo: str, username: str):
+    cursor.execute('INSERT INTO Rating (id_user, name_photo, username) VALUES (?, ?, ?)',
+                   (id_user, name_photo, username))
     conn.commit()

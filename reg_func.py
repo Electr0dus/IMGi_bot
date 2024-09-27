@@ -32,9 +32,6 @@ async def add_db_users(message: types.Message, state):
     if db_user.check_users(message.from_user.id):
         db_user.create(message.from_user.id, username['username'])
         db_set_img.create_user_id(message.from_user.id)
-        db_photo.create_user_id(message.from_user.id)
-        db_error.create_user_id(message.from_user.id)
-        db_rating.create_user_id(message.from_user.id, username['username'])
     else:
         # Ответить что данный пользователь уже есть
         logging.warning(f'User {message.from_user.id} is register')
@@ -80,6 +77,7 @@ async def generate_photo(message: types.Message, state):
             logging.warning(f"This file is already in the database: {data['file_name']}")
             await message.answer(text=text_answer.ERROR_NAME_FILE, parse_mode='HTML')
             # Вывести имена всех существующих фото пользователя
+            # !!!!ВЫВЕСТИ ВСЕ ИМЕНА ФАЙЛОВ КОТОРЫЕ ЕСТЬ В БД У КОНКРЕТНОГО ПОЛЬЗОВАТЕЛЯ!!!!
             await message.answer(text=db_photo.get_all_photo(message.from_user.id))
             # Вернуть обратно в состояние ввода имени файла
             await actions.GenerateAction.file_name.set()
@@ -94,17 +92,11 @@ async def generate_photo(message: types.Message, state):
     # чтобы пользователь придумывал другое имя и при этом вывести ему все существующие названия файлов под его user_id
     await state.finish()
 
-
-# Функция для сохранения сгенерированного ботом фото
-async def save_image(call, state):
-    data = await state.get_data()
-    print(data)
-
-
 # Сгенерировать заново изображение
 async def repeat_image(call: types.CallbackQuery):
     logging.info(f'Image re-engineering {call.from_user.id}')
     # Получить данные из таблицы для нового запроса фота
+    # data_regenerate[0] - prompt data_regenerate[1] - file_name
     data_regenerate = db_technikal.get_tech_data(call.from_user.id)
     await call.message.answer(text=text_answer.DELAY_GEN_IMAGE)
     await getIMG.generate_image(prompt=data_regenerate[0], file_name=data_regenerate[1])
@@ -112,3 +104,18 @@ async def repeat_image(call: types.CallbackQuery):
         await bot.send_photo(chat_id=call.from_user.id, photo=file, reply_markup=keyboards.kb_save_img)
     await call.answer()
 
+# Сохранить сгенерированное изображение
+async def save_gen_image(call: types.CallbackQuery):
+    # Получить данные из таблицы для нового запроса фота
+    data_regenerate = db_technikal.get_tech_data(call.from_user.id)
+    logging.info(f"The image {data_regenerate[1]} was saved successfully")
+    # Сохранить фото в базу данных таблицы Photo
+    db_photo.save_image(call.from_user.id, data_regenerate[1])
+    # Получить имя пользователя, работающего с ботом для записи его имя в рейтинг
+    username = db_user.get_name_for_id(call.from_user.id)
+    # Сохранить фото в базу данных таблицы Rating
+    db_rating.save_image_rating(call.from_user.id, data_regenerate[1], username[0])
+    # Удалить из БД данные в технической таблице конкретного пользователя
+    db_technikal.delete_data_tech(call.from_user.id)
+    await call.message.answer(text=text_answer.SUSCESS_SAVE, parse_mode='HTML', reply_markup=keyboards.kb_main_menu)
+    await call.answer()

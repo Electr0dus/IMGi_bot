@@ -9,13 +9,11 @@ def create_db():
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS Error(
         error TEXT,
-        id_user INT PRIMARY KEY,
-        FOREIGN KEY (id_user) REFERENCES Users(id_user)
+        id_user INT PRIMARY KEY
     );
     ''')
     conn.commit()
 
+#  При отправке ошибки пользователем он должен будет написать только ошибку а данные с его id автоматически добавится
+# и в БД сохранится ошибка и id пользователя, кто написал данную ошибку
 # Добавление ID пользователя при его регистрации
-def create_user_id(id_tg):
-    cursor.execute('INSERT INTO Error (id_user) VALUES (?)', (id_tg,))
-    conn.commit()
