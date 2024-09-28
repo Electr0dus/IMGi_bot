@@ -45,12 +45,18 @@ class Text2ImageAPI:
     async def generation_image(self, request_id, attemps=20, delay=10):
         while attemps > 0:
             logging.info(f'There are still requests left - {attemps}')
-            response = requests.get(self.URL + 'key/api/v1/text2image/status/' + request_id, headers=self.AUTH_HEADERS)
-            data = response.json()
-            if data['status'] == 'DONE':
-                return data['images']
+            try:
+                response = requests.get(self.URL + 'key/api/v1/text2image/status/' + request_id, headers=self.AUTH_HEADERS)
+                response.raise_for_status()
+                data = response.json()
+                if data['status'] == 'DONE':
+                    return data['images']
+            except requests.exceptions.RequestException as e:
+                logging.error(f"{e}")
+                return None
             attemps -= 1
             await asyncio.sleep(delay)
+        return None
 
 
 api = Text2ImageAPI('https://api-key.fusionbrain.ai/', config.API_KANDINSKY, config.SECRET_KEY)

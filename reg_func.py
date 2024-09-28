@@ -66,13 +66,25 @@ async def generate_photo(message: types.Message, state):
     # {'prompt': 'мот', 'file_name': 'мойфайл.png'} - Вывод данных полученных от пользователя
     await state.update_data(file_name=message.text)
     data = await state.get_data()
+    # Получить данные настройки запроса пользователя
+    data_settings = db_set_img.get_set_user(message.from_user.id)
+    # print(data_settings[0][0]) - стиль
+    # print(data_settings[0][1]) - негативный промпт
+    # print(data_settings[0][2]) - ширина
+    # print(data_settings[0][3]) - высота
+    # print(data_settings[0][4]) - выбранный пресет 0 - нет пресета 1 - первый 2 - второй - 3 третий (Пресеты в размерах изображения соотношения сторон самые популярные)
     # Проверить, что файл назван правильно и что этого файла нет в базе данных для конкретного пользователя!!!!
     if getIMG.check_name_file(data['file_name']):  # Проверить корректность ввода файла
         if db_photo.check_photo(data['file_name'],
                                 message.from_user.id):  # Проверить, что такогоже файла болешь нет в БД
             await message.answer(text=text_answer.DELAY_GEN_IMAGE)
             await getIMG.generate_image(prompt=data['prompt'],
-                                        dir_name=str(message.from_user.id), file_name=data['file_name'])
+                                        dir_name=str(message.from_user.id),
+                                        file_name=data['file_name'],
+                                        style=data_settings[0][0],
+                                        negative=data_settings[0][1],
+                                        width=data_settings[0][2],
+                                        height=data_settings[0][3])
             # Отправка фото пользователю
             with open(f"generic_photo_user/{str(message.from_user.id)}/{data['file_name']}", mode='rb') as file:
                 await bot.send_photo(chat_id=message.from_user.id, photo=file, reply_markup=keyboards.kb_save_img)
@@ -107,11 +119,20 @@ async def generate_photo(message: types.Message, state):
 # Сгенерировать заново изображение
 async def repeat_image(call: types.CallbackQuery):
     logging.info(f'Image re-engineering {call.from_user.id}')
+    await call.message.delete()
     # Получить данные из таблицы для нового запроса фота
     # data_regenerate[0] - prompt data_regenerate[1] - file_name
     data_regenerate = db_technikal.get_tech_data(call.from_user.id)
+    # Получить данные настройки запроса пользователя
+    data_settings = db_set_img.get_set_user(call.from_user.id)
     await call.message.answer(text=text_answer.DELAY_GEN_IMAGE)
-    await getIMG.generate_image(prompt=data_regenerate[0], dir_name=str(call.from_user.id), file_name=data_regenerate[1])
+    await getIMG.generate_image(prompt=data_regenerate[0],
+                                dir_name=str(call.from_user.id),
+                                file_name=data_regenerate[1],
+                                style=data_settings[0][0],
+                                negative=data_settings[0][1],
+                                width=data_settings[0][2],
+                                height=data_settings[0][3])
     with open(f"generic_photo_user/{str(call.from_user.id)}/{data_regenerate[1]}", mode='rb') as file:
         await bot.send_photo(chat_id=call.from_user.id, photo=file, reply_markup=keyboards.kb_save_img)
     await call.answer()
