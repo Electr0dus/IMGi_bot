@@ -28,7 +28,8 @@ dp.message_handler(state=actions.GenerateAction.file_name)(reg_func.generate_pho
 dp.callback_query_handler(text='repeat')(reg_func.repeat_image)
 # Сохранить сгенерированное изображение
 dp.callback_query_handler(text='save')(reg_func.save_gen_image)
-
+# Отменить сгенерированное изображение
+dp.callback_query_handler(text='cancel')(reg_func.cancel_image)
 
 def main():
     db_user.create_db()  # Создание таблицы с пользователем

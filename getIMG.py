@@ -1,10 +1,11 @@
 import asyncio
 import base64
 import json
-import time
 import logging
+import os
+
 import requests
-import asyncio
+
 import config
 
 
@@ -52,32 +53,33 @@ class Text2ImageAPI:
             await asyncio.sleep(delay)
 
 
-
 api = Text2ImageAPI('https://api-key.fusionbrain.ai/', config.API_KANDINSKY, config.SECRET_KEY)
 
 
 # Функция для генерации изображения по запросу пользователя
-async def generate_image(file_name: str, prompt: str = 'Кот', width: str = 1024, height: str = 1024,
-                   negative: str = None, style: str = 'string'):
+async def generate_image(file_name: str, dir_name: str, prompt: str = 'Кот', width: str = 1024, height: str = 1024,
+                         negative: str = None, style: str = 'string'):
     model_id = api.get_model()
     logging.info('START generation image')
     uuid = api.generate(prompt=prompt, model=model_id, width=width, height=height, negative=negative, style=style)
     images = await api.generation_image(uuid)
-    convert_images(images, file_name)
+    convert_images(images, dir_name, file_name)
 
 
 # Конвертировать набор байтов в картинку PNG
-def convert_images(images, file_name: str):
+def convert_images(images, dir_name: str, file_name: str):
     image_base64 = images[0]
     image_data = base64.b64decode(image_base64)
-    final_path = f'generic_photo_user/{file_name}'
+    final_path = f'generic_photo_user/{dir_name}/{file_name}'
     logging.info(f'Successfully generate {final_path}')
     with open(final_path, 'wb') as file:
         file.write(image_data)
 
+
 # Функция для сохранения сгенерированной фотографии под названием пользователя
 def save_image_user(name_file: str):
     pass
+
 
 # Функция для проверки правильности написания формы файла, если верно вернёт - True, иначе - False
 def check_name_file(file_name: str):
@@ -94,4 +96,20 @@ def check_name_file(file_name: str):
         return False
 
 
-# generate_image('my_image2.png', 'мотоцикл')
+# Функция для создания директории пользователя, где они будут хранить свои фото
+def make_dir_user(name_dir: str):
+    # если папка ещё не создана, создать её
+    if not os.path.isdir(f'generic_photo_user/{name_dir}'):
+        os.mkdir(f'generic_photo_user/{name_dir}')
+
+
+# Функция удаления фото
+def delete_img(dir_name: str, name_file: str):
+    logging.info(f'The image was deleted successfully {name_file}')
+    path_base = os.getcwd()
+    # Перейти в нужную директорию для удаления фото
+    os.chdir(f'generic_photo_user/{dir_name}')
+    os.remove(name_file)
+    # Вернуться в рабочую директрию обратно
+    os.chdir(path_base) # ЗДЕСЬ ОШИБКА!!!!
+

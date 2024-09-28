@@ -15,10 +15,17 @@ def create_db():
     ''')
     conn.commit()
 
+
+# Создать таблицу при регистрации пользователя
+def create_user(id_user: str):
+    cursor.execute('INSERT INTO Technical (id_user) VALUES (?)',
+                   (id_user,))
+    conn.commit()
+
 # Добавить технические данные в БД
 def creat_data_tech(id_user: int, prompt: str, name_file: str):
-    cursor.execute('INSERT INTO Technical (id_user, prompt, name_file) VALUES (?, ?, ?)',
-                   (id_user, prompt, name_file))
+    cursor.execute('UPDATE Technical SET prompt = ?, name_file = ? WHERE id_user = ?',
+                   (prompt, name_file, id_user))
     conn.commit()
 
 # Получить данные для повторной генерации фото
@@ -30,5 +37,5 @@ def get_tech_data(id_user: int):
 
 # Удалить техническую информацию из БД пользователя по id
 def delete_data_tech(id_user: int):
-    cursor.execute('DELETE FROM Technical WHERE id_user = ?', (id_user,))
+    cursor.execute('UPDATE Technical SET prompt = ?, name_file = ? WHERE id_user = ?', (None, None, id_user,))
     conn.commit()

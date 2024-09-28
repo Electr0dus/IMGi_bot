@@ -12,4 +12,4 @@ kb_save_img = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Сохранить✅', callback_data='save'),
      InlineKeyboardButton(text='Отменить🚫', callback_data='cancel')],
     [InlineKeyboardButton(text='Сгенерировать заново🔁', callback_data='repeat')],
-], resize_keyboard=True)
+], resize_keyboard=True, )

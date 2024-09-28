@@ -32,6 +32,10 @@ async def add_db_users(message: types.Message, state):
     if db_user.check_users(message.from_user.id):
         db_user.create(message.from_user.id, username['username'])
         db_set_img.create_user_id(message.from_user.id)
+        db_technikal.create_user(message.from_user.id)
+        # Создать папку в которой будут хранится сгенерированные фото пользователей
+        getIMG.make_dir_user(str(message.from_user.id))
+
     else:
         # Ответить что данный пользователь уже есть
         logging.warning(f'User {message.from_user.id} is register')
@@ -67,16 +71,17 @@ async def generate_photo(message: types.Message, state):
         if db_photo.check_photo(data['file_name'],
                                 message.from_user.id):  # Проверить, что такогоже файла болешь нет в БД
             await message.answer(text=text_answer.DELAY_GEN_IMAGE)
-            await getIMG.generate_image(prompt=data['prompt'], file_name=data['file_name'])
+            await getIMG.generate_image(prompt=data['prompt'],
+                                        dir_name=str(message.from_user.id), file_name=data['file_name'])
             # Отправка фото пользователю
-            with open(f"generic_photo_user/{data['file_name']}", mode='rb') as file:
+            with open(f"generic_photo_user/{str(message.from_user.id)}/{data['file_name']}", mode='rb') as file:
                 await bot.send_photo(chat_id=message.from_user.id, photo=file, reply_markup=keyboards.kb_save_img)
                 # Сохранить в БД техническую информацию для дальнейшей работы с ней
                 db_technikal.creat_data_tech(id_user=message.from_user.id, prompt=data['prompt'],
                                              name_file=data['file_name'])
         else:
             logging.warning(f"This file is already in the database: {data['file_name']}")
-            #Получить все файлы с изображениями конкретного пользователя
+            # Получить все файлы с изображениями конкретного пользователя
             all_file = db_photo.get_all_photo(message.from_user.id)
             message_name_file: str = ''
             for name_image in all_file:
@@ -106,8 +111,8 @@ async def repeat_image(call: types.CallbackQuery):
     # data_regenerate[0] - prompt data_regenerate[1] - file_name
     data_regenerate = db_technikal.get_tech_data(call.from_user.id)
     await call.message.answer(text=text_answer.DELAY_GEN_IMAGE)
-    await getIMG.generate_image(prompt=data_regenerate[0], file_name=data_regenerate[1])
-    with open(f"generic_photo_user/{data_regenerate[1]}", mode='rb') as file:
+    await getIMG.generate_image(prompt=data_regenerate[0], dir_name=str(call.from_user.id), file_name=data_regenerate[1])
+    with open(f"generic_photo_user/{str(call.from_user.id)}/{data_regenerate[1]}", mode='rb') as file:
         await bot.send_photo(chat_id=call.from_user.id, photo=file, reply_markup=keyboards.kb_save_img)
     await call.answer()
 
@@ -125,5 +130,21 @@ async def save_gen_image(call: types.CallbackQuery):
     db_rating.save_image_rating(call.from_user.id, data_regenerate[1], username[0])
     # Удалить из БД данные в технической таблице конкретного пользователя
     db_technikal.delete_data_tech(call.from_user.id)
+    # Удалить фото с кнопками, чтобы пользователь не смог нажать на них и не сломал бота
+    await call.message.delete()
     await call.message.answer(text=text_answer.SUSCESS_SAVE, parse_mode='HTML', reply_markup=keyboards.kb_main_menu)
+    await call.answer()
+
+
+# Отменить сохранение и перегенерирование нового изображения
+async def cancel_image(call: types.CallbackQuery):
+    logging.info(f'Canceling photo saving user - {call.from_user.id}')
+    data_regenerate = db_technikal.get_tech_data(call.from_user.id)
+    # удалить фото сгенерированное, так как оно больше не нужно
+    getIMG.delete_img(str(call.from_user.id), data_regenerate[1])
+    # Удалить из БД данные в технической таблице конкретного пользователя
+    db_technikal.delete_data_tech(call.from_user.id)
+    # Удалить фото с кнопками, чтобы пользователь не смог нажать на них и не сломал бота
+    await call.message.delete()
+    await call.message.answer(text=text_answer.CANCEL_IMAGE_BOT, parse_mode='HTML', reply_markup=keyboards.kb_main_menu)
     await call.answer()
