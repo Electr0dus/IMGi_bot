@@ -33,7 +33,7 @@ def get_all_photo(id_name: int):
     cursor.execute('SELECT name_photo FROM Photo WHERE id_user = ?', (id_name,))
     conn.commit()
     all_photo = cursor.fetchall()
-    return all_photo[0]
+    return all_photo # all_photo[0]
 
 # Сохранить имя сгенерированного фото с id пользователем
 def save_image(id_user: int, name_photo: str):

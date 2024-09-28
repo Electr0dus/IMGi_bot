@@ -7,7 +7,7 @@ import config
 import getIMG
 import keyboards
 import text_answer
-from IMGi_bot.DB import db_photo, db_user, db_set_img, db_error, db_rating, db_technikal
+from IMGi_bot.DB import db_photo, db_user, db_set_img, db_rating, db_technikal
 
 bot = Bot(config.BOT_TOKEN)
 
@@ -72,13 +72,19 @@ async def generate_photo(message: types.Message, state):
             with open(f"generic_photo_user/{data['file_name']}", mode='rb') as file:
                 await bot.send_photo(chat_id=message.from_user.id, photo=file, reply_markup=keyboards.kb_save_img)
                 # Сохранить в БД техническую информацию для дальнейшей работы с ней
-                db_technikal.creat_data_tech(id_user=message.from_user.id, prompt=data['prompt'], name_file=data['file_name'])
+                db_technikal.creat_data_tech(id_user=message.from_user.id, prompt=data['prompt'],
+                                             name_file=data['file_name'])
         else:
             logging.warning(f"This file is already in the database: {data['file_name']}")
+            #Получить все файлы с изображениями конкретного пользователя
+            all_file = db_photo.get_all_photo(message.from_user.id)
+            message_name_file: str = ''
+            for name_image in all_file:
+                for name in name_image:
+                    message_name_file += f'{str(name)}\n'
             await message.answer(text=text_answer.ERROR_NAME_FILE, parse_mode='HTML')
             # Вывести имена всех существующих фото пользователя
-            # !!!!ВЫВЕСТИ ВСЕ ИМЕНА ФАЙЛОВ КОТОРЫЕ ЕСТЬ В БД У КОНКРЕТНОГО ПОЛЬЗОВАТЕЛЯ!!!!
-            await message.answer(text=db_photo.get_all_photo(message.from_user.id))
+            await message.answer(text=f'<b>Ваши файлы:</b>📁\n<em>{message_name_file}</em>', parse_mode='HTML')
             # Вернуть обратно в состояние ввода имени файла
             await actions.GenerateAction.file_name.set()
             return 0
@@ -92,6 +98,7 @@ async def generate_photo(message: types.Message, state):
     # чтобы пользователь придумывал другое имя и при этом вывести ему все существующие названия файлов под его user_id
     await state.finish()
 
+
 # Сгенерировать заново изображение
 async def repeat_image(call: types.CallbackQuery):
     logging.info(f'Image re-engineering {call.from_user.id}')
@@ -103,6 +110,7 @@ async def repeat_image(call: types.CallbackQuery):
     with open(f"generic_photo_user/{data_regenerate[1]}", mode='rb') as file:
         await bot.send_photo(chat_id=call.from_user.id, photo=file, reply_markup=keyboards.kb_save_img)
     await call.answer()
+
 
 # Сохранить сгенерированное изображение
 async def save_gen_image(call: types.CallbackQuery):
