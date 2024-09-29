@@ -5,7 +5,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 import actions
 import config
-import reg_func
+from IMGi_bot.function import reg_func
 from IMGi_bot.DB import db_error, db_rating, db_photo, db_user, db_set_img, db_technikal
 
 bot = Bot(config.BOT_TOKEN)

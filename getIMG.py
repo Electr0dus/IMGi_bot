@@ -42,19 +42,21 @@ class Text2ImageAPI:
         data = response.json()
         return data['uuid']
 
-    async def generation_image(self, request_id, attemps=20, delay=10):
-        while attemps > 0:
-            logging.info(f'There are still requests left - {attemps}')
+    async def generation_image(self, request_id, attems=20, delay=10):
+        while attems > 0:
+            logging.info(f'There are still requests left - {attems}')
             try:
                 response = requests.get(self.URL + 'key/api/v1/text2image/status/' + request_id, headers=self.AUTH_HEADERS)
                 response.raise_for_status()
                 data = response.json()
                 if data['status'] == 'DONE':
                     return data['images']
+                if data['status'] == 'FAIL':
+                    return data['status']
             except requests.exceptions.RequestException as e:
                 logging.error(f"{e}")
                 return None
-            attemps -= 1
+            attems -= 1
             await asyncio.sleep(delay)
         return None
 
@@ -63,14 +65,17 @@ api = Text2ImageAPI('https://api-key.fusionbrain.ai/', config.API_KANDINSKY, con
 
 
 # Функция для генерации изображения по запросу пользователя
-async def generate_image(file_name: str, dir_name: str, prompt: str = 'Кот', width: str = 1024, height: str = 1024,
+async def generate_image(file_name: str, dir_name: str, prompt: str = 'Кот', width: int = 1024, height: int = 1024,
                          negative: str = None, style: str = 'string'):
     model_id = api.get_model()
     logging.info('START generation image')
     uuid = api.generate(prompt=prompt, model=model_id, width=width, height=height, negative=negative, style=style)
     images = await api.generation_image(uuid)
-    convert_images(images, dir_name, file_name)
-
+    if images == 'FAIL':
+        return False
+    else:
+        convert_images(images, dir_name, file_name)
+        return True
 
 # Конвертировать набор байтов в картинку PNG
 def convert_images(images, dir_name: str, file_name: str):

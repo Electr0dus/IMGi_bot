@@ -1,168 +1,61 @@
-2024-09-28 23:49:26,191 | INFO | START BOT
-2024-09-28 23:49:26,400 | INFO | Bot: IMGAi [@imagesAI_bot]
-2024-09-28 23:49:26,400 | INFO | Start polling.
-2024-09-28 23:49:31,012 | INFO | User 678552784 successfully register
-2024-09-28 23:49:39,742 | INFO | START generation image
-2024-09-28 23:49:39,878 | INFO | There are still requests left - 20
-2024-09-28 23:49:49,995 | INFO | There are still requests left - 19
-2024-09-28 23:50:00,062 | INFO | There are still requests left - 18
-2024-09-28 23:50:00,226 | INFO | Successfully generate generic_photo_user/678552784/suz.png
-2024-09-28 23:50:05,341 | INFO | Image re-engineering 678552784
-2024-09-28 23:50:05,607 | INFO | START generation image
-2024-09-28 23:50:05,755 | INFO | There are still requests left - 20
-2024-09-28 23:50:15,867 | INFO | There are still requests left - 19
-2024-09-28 23:50:25,990 | INFO | There are still requests left - 18
-2024-09-28 23:50:26,268 | INFO | Successfully generate generic_photo_user/678552784/suz.png
-2024-09-28 23:50:41,001 | ERROR | Task exception was never retrieved
-future: <Task finished name='Task-31' coro=<Dispatcher._process_polling_updates() done, defined at D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py:410> exception=InvalidQueryID('Query is too old and response timeout expired or query id is invalid')>
-Traceback (most recent call last):
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 418, in _process_polling_updates
-    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 236, in process_updates
-    return await asyncio.gather(*tasks)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
-    response = await handler_obj.handler(*args, **partial_data)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 284, in process_update
-    return await self.callback_query_handlers.notify(update.callback_query)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
-    response = await handler_obj.handler(*args, **partial_data)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\IMGi_bot\reg_func.py", line 138, in repeat_image
-    await call.answer()
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\types\callback_query.py", line 57, in answer
-    return await self.bot.answer_callback_query(callback_query_id=self.id,
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\bot.py", line 2890, in answer_callback_query
-    return await self.request(api.Methods.ANSWER_CALLBACK_QUERY, payload)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\base.py", line 236, in request
-    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\api.py", line 140, in make_request
-    return check_result(method, response.content_type, response.status, await response.text())
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\api.py", line 115, in check_result
-    exceptions.BadRequest.detect(description)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\utils\exceptions.py", line 140, in detect
-    raise err(cls.text or description)
-aiogram.utils.exceptions.InvalidQueryID: Query is too old and response timeout expired or query id is invalid
-2024-09-28 23:50:41,004 | INFO | The image suz.png was saved successfully
-2024-09-28 23:51:06,476 | WARNING | This file is already in the database: suz.png
-2024-09-28 23:51:13,661 | INFO | START generation image
-2024-09-28 23:51:13,799 | INFO | There are still requests left - 20
-2024-09-28 23:51:23,884 | INFO | There are still requests left - 19
-2024-09-28 23:51:33,985 | INFO | There are still requests left - 18
-2024-09-28 23:51:34,216 | INFO | Successfully generate generic_photo_user/678552784/cat.png
-2024-09-28 23:51:41,302 | INFO | Image re-engineering 678552784
-2024-09-28 23:51:41,586 | INFO | START generation image
-2024-09-28 23:51:41,732 | INFO | There are still requests left - 20
-2024-09-28 23:51:51,798 | INFO | There are still requests left - 19
-2024-09-28 23:52:01,863 | INFO | There are still requests left - 18
-2024-09-28 23:52:02,046 | INFO | Successfully generate generic_photo_user/678552784/cat.png
-2024-09-28 23:52:11,251 | ERROR | Task exception was never retrieved
-future: <Task finished name='Task-69' coro=<Dispatcher._process_polling_updates() done, defined at D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py:410> exception=InvalidQueryID('Query is too old and response timeout expired or query id is invalid')>
-Traceback (most recent call last):
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 418, in _process_polling_updates
-    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 236, in process_updates
-    return await asyncio.gather(*tasks)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
-    response = await handler_obj.handler(*args, **partial_data)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 284, in process_update
-    return await self.callback_query_handlers.notify(update.callback_query)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
-    response = await handler_obj.handler(*args, **partial_data)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\IMGi_bot\reg_func.py", line 138, in repeat_image
-    await call.answer()
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\types\callback_query.py", line 57, in answer
-    return await self.bot.answer_callback_query(callback_query_id=self.id,
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\bot.py", line 2890, in answer_callback_query
-    return await self.request(api.Methods.ANSWER_CALLBACK_QUERY, payload)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\base.py", line 236, in request
-    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\api.py", line 140, in make_request
-    return check_result(method, response.content_type, response.status, await response.text())
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\api.py", line 115, in check_result
-    exceptions.BadRequest.detect(description)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\utils\exceptions.py", line 140, in detect
-    raise err(cls.text or description)
-aiogram.utils.exceptions.InvalidQueryID: Query is too old and response timeout expired or query id is invalid
-2024-09-28 23:52:11,252 | INFO | Canceling photo saving user - 678552784
-2024-09-28 23:52:11,253 | INFO | The image was deleted successfully cat.png
-2024-09-28 23:52:28,695 | INFO | START generation image
-2024-09-28 23:52:28,841 | INFO | There are still requests left - 20
-2024-09-28 23:52:38,946 | INFO | There are still requests left - 19
-2024-09-28 23:52:49,100 | INFO | There are still requests left - 18
-2024-09-28 23:52:49,323 | INFO | Successfully generate generic_photo_user/678552784/dog.png
-2024-09-28 23:53:05,428 | INFO | The image dog.png was saved successfully
-2024-09-28 23:53:21,463 | INFO | START generation image
-2024-09-28 23:53:21,562 | INFO | There are still requests left - 20
-2024-09-28 23:53:31,681 | INFO | There are still requests left - 19
-2024-09-28 23:53:41,816 | INFO | There are still requests left - 18
-2024-09-28 23:53:42,082 | INFO | Successfully generate generic_photo_user/678552784/car.png
-2024-09-28 23:53:48,837 | INFO | Image re-engineering 678552784
-2024-09-28 23:53:49,211 | INFO | START generation image
-2024-09-28 23:53:49,317 | INFO | There are still requests left - 20
-2024-09-28 23:53:59,440 | INFO | There are still requests left - 19
-2024-09-28 23:54:09,509 | INFO | There are still requests left - 18
-2024-09-28 23:54:09,757 | INFO | Successfully generate generic_photo_user/678552784/car.png
-2024-09-28 23:54:19,870 | ERROR | Task exception was never retrieved
-future: <Task finished name='Task-123' coro=<Dispatcher._process_polling_updates() done, defined at D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py:410> exception=InvalidQueryID('Query is too old and response timeout expired or query id is invalid')>
-Traceback (most recent call last):
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 418, in _process_polling_updates
-    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 236, in process_updates
-    return await asyncio.gather(*tasks)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
-    response = await handler_obj.handler(*args, **partial_data)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 284, in process_update
-    return await self.callback_query_handlers.notify(update.callback_query)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
-    response = await handler_obj.handler(*args, **partial_data)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\IMGi_bot\reg_func.py", line 138, in repeat_image
-    await call.answer()
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\types\callback_query.py", line 57, in answer
-    return await self.bot.answer_callback_query(callback_query_id=self.id,
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\bot.py", line 2890, in answer_callback_query
-    return await self.request(api.Methods.ANSWER_CALLBACK_QUERY, payload)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\base.py", line 236, in request
-    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\api.py", line 140, in make_request
-    return check_result(method, response.content_type, response.status, await response.text())
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\api.py", line 115, in check_result
-    exceptions.BadRequest.detect(description)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\utils\exceptions.py", line 140, in detect
-    raise err(cls.text or description)
-aiogram.utils.exceptions.InvalidQueryID: Query is too old and response timeout expired or query id is invalid
-2024-09-28 23:54:19,871 | INFO | Image re-engineering 678552784
-2024-09-28 23:54:20,113 | INFO | START generation image
-2024-09-28 23:54:20,258 | INFO | There are still requests left - 20
-2024-09-28 23:54:30,362 | INFO | There are still requests left - 19
-2024-09-28 23:54:40,475 | INFO | There are still requests left - 18
-2024-09-28 23:54:40,821 | INFO | Successfully generate generic_photo_user/678552784/car.png
-2024-09-28 23:55:48,260 | ERROR | Task exception was never retrieved
-future: <Task finished name='Task-134' coro=<Dispatcher._process_polling_updates() done, defined at D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py:410> exception=InvalidQueryID('Query is too old and response timeout expired or query id is invalid')>
-Traceback (most recent call last):
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 418, in _process_polling_updates
-    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 236, in process_updates
-    return await asyncio.gather(*tasks)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
-    response = await handler_obj.handler(*args, **partial_data)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 284, in process_update
-    return await self.callback_query_handlers.notify(update.callback_query)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
-    response = await handler_obj.handler(*args, **partial_data)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\IMGi_bot\reg_func.py", line 138, in repeat_image
-    await call.answer()
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\types\callback_query.py", line 57, in answer
-    return await self.bot.answer_callback_query(callback_query_id=self.id,
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\bot.py", line 2890, in answer_callback_query
-    return await self.request(api.Methods.ANSWER_CALLBACK_QUERY, payload)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\base.py", line 236, in request
-    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\api.py", line 140, in make_request
-    return check_result(method, response.content_type, response.status, await response.text())
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\bot\api.py", line 115, in check_result
-    exceptions.BadRequest.detect(description)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\utils\exceptions.py", line 140, in detect
-    raise err(cls.text or description)
-aiogram.utils.exceptions.InvalidQueryID: Query is too old and response timeout expired or query id is invalid
-2024-09-28 23:55:48,262 | INFO | The image car.png was saved successfully
-2024-09-28 23:56:16,348 | INFO | Stop polling...
-2024-09-28 23:56:16,348 | WARNING | Goodbye!
+2024-09-29 16:39:47,094 | INFO | START BOT
+2024-09-29 16:39:47,341 | INFO | Bot: IMGAi [@imagesAI_bot]
+2024-09-29 16:39:47,341 | INFO | Start polling.
+2024-09-29 16:39:57,951 | INFO | START generation image
+2024-09-29 16:39:58,101 | INFO | There are still requests left - 20
+2024-09-29 16:40:08,197 | INFO | There are still requests left - 19
+2024-09-29 16:40:18,326 | INFO | There are still requests left - 18
+2024-09-29 16:40:28,456 | INFO | There are still requests left - 17
+2024-09-29 16:40:38,568 | INFO | There are still requests left - 16
+2024-09-29 16:40:48,662 | INFO | There are still requests left - 15
+2024-09-29 16:40:48,922 | INFO | Successfully generate generic_photo_user/678552784/fly.png
+2024-09-29 16:40:58,982 | INFO | Image re-engineering 678552784
+2024-09-29 16:40:59,381 | INFO | START generation image
+2024-09-29 16:40:59,524 | INFO | There are still requests left - 20
+2024-09-29 16:41:09,621 | INFO | There are still requests left - 19
+2024-09-29 16:41:19,741 | INFO | There are still requests left - 18
+2024-09-29 16:41:29,841 | INFO | There are still requests left - 17
+2024-09-29 16:41:39,972 | INFO | There are still requests left - 16
+2024-09-29 16:41:50,074 | INFO | There are still requests left - 15
+2024-09-29 16:41:50,212 | INFO | Successfully generate generic_photo_user/678552784/fly.png
+2024-09-29 16:41:55,811 | INFO | Canceling photo saving user - 678552784
+2024-09-29 16:41:55,811 | INFO | The image was deleted successfully fly.png
+2024-09-29 16:42:10,636 | INFO | START generation image
+2024-09-29 16:42:10,781 | INFO | There are still requests left - 20
+2024-09-29 16:42:20,910 | INFO | There are still requests left - 19
+2024-09-29 16:42:30,990 | INFO | There are still requests left - 18
+2024-09-29 16:42:41,121 | INFO | There are still requests left - 17
+2024-09-29 16:42:51,250 | INFO | There are still requests left - 16
+2024-09-29 16:43:01,376 | INFO | There are still requests left - 15
+2024-09-29 16:43:01,593 | INFO | Successfully generate generic_photo_user/678552784/fly.png
+2024-09-29 16:43:06,302 | INFO | Image re-engineering 678552784
+2024-09-29 16:43:06,628 | INFO | START generation image
+2024-09-29 16:43:06,726 | INFO | There are still requests left - 20
+2024-09-29 16:43:16,816 | INFO | There are still requests left - 19
+2024-09-29 16:43:26,956 | INFO | There are still requests left - 18
+2024-09-29 16:43:37,060 | INFO | There are still requests left - 17
+2024-09-29 16:43:47,188 | INFO | There are still requests left - 16
+2024-09-29 16:43:57,307 | INFO | There are still requests left - 15
+2024-09-29 16:43:57,455 | INFO | Successfully generate generic_photo_user/678552784/fly.png
+2024-09-29 16:44:01,880 | INFO | The image fly.png was saved successfully
+2024-09-29 16:44:22,170 | INFO | START generation image
+2024-09-29 16:44:22,320 | INFO | There are still requests left - 20
+2024-09-29 16:44:32,422 | INFO | There are still requests left - 19
+2024-09-29 16:44:42,536 | INFO | There are still requests left - 18
+2024-09-29 16:44:52,661 | INFO | There are still requests left - 17
+2024-09-29 16:45:02,738 | INFO | There are still requests left - 16
+2024-09-29 16:45:12,869 | INFO | There are still requests left - 15
+2024-09-29 16:45:13,114 | INFO | Successfully generate generic_photo_user/678552784/cat.png
+2024-09-29 16:45:18,261 | INFO | The image cat.png was saved successfully
+2024-09-29 16:45:44,441 | WARNING | This file is already in the database: cat.png
+2024-09-29 16:45:45,749 | WARNING | Invalid file name: vdfv
+2024-09-29 16:45:53,522 | INFO | START generation image
+2024-09-29 16:45:53,644 | INFO | There are still requests left - 20
+2024-09-29 16:46:03,774 | INFO | There are still requests left - 19
+2024-09-29 16:46:13,891 | INFO | There are still requests left - 18
+2024-09-29 16:46:24,011 | INFO | There are still requests left - 17
+2024-09-29 16:46:34,099 | INFO | There are still requests left - 16
+2024-09-29 16:46:34,318 | INFO | Successfully generate generic_photo_user/678552784/cat_punk.png
+2024-09-29 16:46:49,883 | INFO | The image cat_punk.png was saved successfully
+2024-09-29 16:46:59,719 | INFO | Stop polling...
+2024-09-29 16:46:59,719 | WARNING | Goodbye!

@@ -2,11 +2,11 @@ import logging
 
 from aiogram import types, Bot
 
-import actions
-import config
-import getIMG
-import keyboards
-import text_answer
+from IMGi_bot import actions
+from IMGi_bot import config
+from IMGi_bot import getIMG
+from IMGi_bot import keyboards
+from IMGi_bot import text_answer
 from IMGi_bot.DB import db_photo, db_user, db_set_img, db_rating, db_technikal
 
 bot = Bot(config.BOT_TOKEN)
@@ -78,19 +78,23 @@ async def generate_photo(message: types.Message, state):
         if db_photo.check_photo(data['file_name'],
                                 message.from_user.id):  # Проверить, что такогоже файла болешь нет в БД
             await message.answer(text=text_answer.DELAY_GEN_IMAGE)
-            await getIMG.generate_image(prompt=data['prompt'],
+            # Сделать if на проверку, что ошибки не было и если есть ошибка выводить сообщение пользователю об этой ошибки
+            if await getIMG.generate_image(prompt=data['prompt'],
                                         dir_name=str(message.from_user.id),
                                         file_name=data['file_name'],
                                         style=data_settings[0][0],
                                         negative=data_settings[0][1],
                                         width=data_settings[0][2],
-                                        height=data_settings[0][3])
-            # Отправка фото пользователю
-            with open(f"generic_photo_user/{str(message.from_user.id)}/{data['file_name']}", mode='rb') as file:
-                await bot.send_photo(chat_id=message.from_user.id, photo=file, reply_markup=keyboards.kb_save_img)
-                # Сохранить в БД техническую информацию для дальнейшей работы с ней
-                db_technikal.creat_data_tech(id_user=message.from_user.id, prompt=data['prompt'],
-                                             name_file=data['file_name'])
+                                        height=data_settings[0][3]):
+                # Отправка фото пользователю
+                with open(f"generic_photo_user/{str(message.from_user.id)}/{data['file_name']}", mode='rb') as file:
+                    await bot.send_photo(chat_id=message.from_user.id, photo=file, reply_markup=keyboards.kb_save_img)
+                    # Сохранить в БД техническую информацию для дальнейшей работы с ней
+                    db_technikal.creat_data_tech(id_user=message.from_user.id, prompt=data['prompt'],
+                                                 name_file=data['file_name'])
+            else:
+                logging.warning('Service is unavailable, server error')
+                await message.answer(text=text_answer.KANDIN_ERROR, parse_mode='HTML', reply_markup=keyboards.kb_main_menu)
         else:
             logging.warning(f"This file is already in the database: {data['file_name']}")
             # Получить все файлы с изображениями конкретного пользователя
@@ -126,16 +130,18 @@ async def repeat_image(call: types.CallbackQuery):
     # Получить данные настройки запроса пользователя
     data_settings = db_set_img.get_set_user(call.from_user.id)
     await call.message.answer(text=text_answer.DELAY_GEN_IMAGE)
-    await getIMG.generate_image(prompt=data_regenerate[0],
+    if await getIMG.generate_image(prompt=data_regenerate[0],
                                 dir_name=str(call.from_user.id),
                                 file_name=data_regenerate[1],
                                 style=data_settings[0][0],
                                 negative=data_settings[0][1],
                                 width=data_settings[0][2],
-                                height=data_settings[0][3])
-    with open(f"generic_photo_user/{str(call.from_user.id)}/{data_regenerate[1]}", mode='rb') as file:
-        await bot.send_photo(chat_id=call.from_user.id, photo=file, reply_markup=keyboards.kb_save_img)
-    await call.answer()
+                                height=data_settings[0][3]):
+        with open(f"generic_photo_user/{str(call.from_user.id)}/{data_regenerate[1]}", mode='rb') as file:
+            await bot.send_photo(chat_id=call.from_user.id, photo=file, reply_markup=keyboards.kb_save_img)
+    else:
+        logging.warning('Service is unavailable, server error')
+        await call.message.answer(text=text_answer.KANDIN_ERROR, parse_mode='HTML', reply_markup=keyboards.kb_main_menu)
 
 
 # Сохранить сгенерированное изображение
@@ -154,7 +160,7 @@ async def save_gen_image(call: types.CallbackQuery):
     # Удалить фото с кнопками, чтобы пользователь не смог нажать на них и не сломал бота
     await call.message.delete()
     await call.message.answer(text=text_answer.SUSCESS_SAVE, parse_mode='HTML', reply_markup=keyboards.kb_main_menu)
-    await call.answer()
+    # await call.answer()
 
 
 # Отменить сохранение и перегенерирование нового изображения
@@ -168,4 +174,4 @@ async def cancel_image(call: types.CallbackQuery):
     # Удалить фото с кнопками, чтобы пользователь не смог нажать на них и не сломал бота
     await call.message.delete()
     await call.message.answer(text=text_answer.CANCEL_IMAGE_BOT, parse_mode='HTML', reply_markup=keyboards.kb_main_menu)
-    await call.answer()
+    # await call.answer()

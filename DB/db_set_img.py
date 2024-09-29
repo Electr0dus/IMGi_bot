@@ -10,11 +10,11 @@ conn.commit()
 def create_db():
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS Settings(
-        style_img TEXT DEFAULT string,
+        style_img TEXT DEFAULT "DEFAULT",
         negative_prompt TEXT DEFAULT None,
         width INT DEFAULT 1024,
         height INT DEFAULT 1024,
-        preset TEXT DEFAULT 0,
+        preset INT DEFAULT 0,
         id_user INT PRIMARY KEY,
         FOREIGN KEY (id_user) REFERENCES Users(id_user)
     );
