@@ -32,3 +32,9 @@ def get_set_user(id_user):
 def create_user_id(id_tg):
     cursor.execute('INSERT INTO Settings (id_user) VALUES (?)', (id_tg,))
     conn.commit()
+
+
+# Установить стиль генерации для конкретного пользователя
+def set_style_user(id_user, style):
+    cursor.execute('UPDATE Settings SET style_img = ? WHERE id_user = ?', (style, id_user))
+    conn.commit()

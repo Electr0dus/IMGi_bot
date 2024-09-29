@@ -1,21 +1,33 @@
-2024-09-29 17:47:11,776 | INFO | START BOT
-2024-09-29 17:47:12,037 | INFO | Bot: IMGAi [@imagesAI_bot]
-2024-09-29 17:47:12,037 | INFO | Start polling.
-2024-09-29 17:47:17,074 | ERROR | Task exception was never retrieved
-future: <Task finished name='Task-7' coro=<Dispatcher._process_polling_updates() done, defined at D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py:410> exception=FileNotFoundError(2, 'No such file or directory')>
-Traceback (most recent call last):
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 418, in _process_polling_updates
-    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 236, in process_updates
-    return await asyncio.gather(*tasks)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
-    response = await handler_obj.handler(*args, **partial_data)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 257, in process_update
-    return await self.message_handlers.notify(update.message)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
-    response = await handler_obj.handler(*args, **partial_data)
-  File "D:\Рабочий стол\Urban University\DIPLOM_project\IMGi_bot\function\setting_func.py", line 16, in set_style
-    with open('./image_for_settings/style.png', mode='rb') as file:
-FileNotFoundError: [Errno 2] No such file or directory: './image_for_settings/style.png'
-2024-09-29 17:50:20,937 | INFO | Stop polling...
-2024-09-29 17:50:20,937 | WARNING | Goodbye!
+2024-09-29 21:05:31,191 | INFO | START BOT
+2024-09-29 21:05:31,426 | INFO | Bot: IMGAi [@imagesAI_bot]
+2024-09-29 21:05:31,426 | INFO | Start polling.
+2024-09-29 21:05:33,692 | INFO | Setting the style: user 678552784
+2024-09-29 21:05:35,911 | INFO | SET STYLE "KANDINSKY": user 678552784
+2024-09-29 21:05:39,248 | INFO | Setting the style: user 678552784
+2024-09-29 21:05:40,483 | INFO | SET STYLE "ANIME": user 678552784
+2024-09-29 21:05:42,141 | INFO | Bact to main menu: user 678552784
+2024-09-29 21:05:52,886 | INFO | START generation image
+2024-09-29 21:05:53,005 | INFO | There are still requests left - 20
+2024-09-29 21:06:03,128 | INFO | There are still requests left - 19
+2024-09-29 21:06:13,243 | INFO | There are still requests left - 18
+2024-09-29 21:06:23,325 | INFO | There are still requests left - 17
+2024-09-29 21:06:33,452 | INFO | There are still requests left - 16
+2024-09-29 21:06:43,576 | INFO | There are still requests left - 15
+2024-09-29 21:06:43,723 | INFO | Successfully generate generic_photo_user/678552784/anime.png
+2024-09-29 21:07:00,785 | INFO | The image anime.png was saved successfully
+2024-09-29 21:07:02,413 | INFO | Menu Settings: user 678552784
+2024-09-29 21:07:03,663 | INFO | Setting the style: user 678552784
+2024-09-29 21:07:05,888 | INFO | SET STYLE "KANDINSKY": user 678552784
+2024-09-29 21:07:09,830 | INFO | Bact to main menu: user 678552784
+2024-09-29 21:07:20,273 | INFO | START generation image
+2024-09-29 21:07:20,416 | INFO | There are still requests left - 20
+2024-09-29 21:07:30,534 | INFO | There are still requests left - 19
+2024-09-29 21:07:40,646 | INFO | There are still requests left - 18
+2024-09-29 21:07:50,789 | INFO | There are still requests left - 17
+2024-09-29 21:08:00,888 | INFO | There are still requests left - 16
+2024-09-29 21:08:10,986 | INFO | There are still requests left - 15
+2024-09-29 21:08:21,059 | INFO | There are still requests left - 14
+2024-09-29 21:08:21,334 | INFO | Successfully generate generic_photo_user/678552784/kandin.png
+2024-09-29 21:08:27,164 | INFO | The image kandin.png was saved successfully
+2024-09-29 21:08:38,317 | INFO | Stop polling...
+2024-09-29 21:08:38,317 | WARNING | Goodbye!

@@ -32,8 +32,24 @@ dp.callback_query_handler(text='save')(reg_func.save_gen_image)
 # Отменить сгенерированное изображение
 dp.callback_query_handler(text='cancel')(reg_func.cancel_image)
 
-# Хэндлеры для настройки генерации изображения
-dp.message_handler(text=['Настройки генерации⚙️'])(setting_func.set_style)
+# Хэндлеры для вывода клавиатура настройки
+dp.message_handler(text=['Настройки генерации⚙️'])(setting_func.menu_settings)
+# Вернуться обратно в главное меню
+dp.message_handler(text=['Назад🔙'])(setting_func.bact_to_main_menu)
+# Вернутся в настройку генерации изображения
+dp.callback_query_handler(text='back')(setting_func.bact_settings)
+# Настройка стиля
+dp.message_handler(text=['Стиль✨'])(setting_func.set_style)
+# Установка стиля DEFAULT
+dp.callback_query_handler(text='DEFAULT')(setting_func.set_DEFAULT)
+# Установка стиля UHD
+dp.callback_query_handler(text='UHD')(setting_func.set_UHD)
+# Установка стиля ANIME
+dp.callback_query_handler(text='ANIME')(setting_func.set_ANIME)
+# Установка стиля KANDINSKY
+dp.callback_query_handler(text='KANDINSKY')(setting_func.set_KANDINSKY)
+
+
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
     db_set_img.create_db()  # Создание таблицы с настройками генерации фото
