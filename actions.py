@@ -9,3 +9,8 @@ class RegisterAction(StatesGroup):
 class GenerateAction(StatesGroup):
     prompt = State()
     file_name = State()
+
+
+# Машина состояния для ввода негативного промта
+class NegativePromptAction(StatesGroup):
+    negative_prompt = State()

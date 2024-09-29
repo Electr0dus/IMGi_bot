@@ -14,7 +14,6 @@ def create_db():
         negative_prompt TEXT DEFAULT None,
         width INT DEFAULT 1024,
         height INT DEFAULT 1024,
-        preset INT DEFAULT 0,
         id_user INT PRIMARY KEY,
         FOREIGN KEY (id_user) REFERENCES Users(id_user)
     );
@@ -37,4 +36,9 @@ def create_user_id(id_tg):
 # Установить стиль генерации для конкретного пользователя
 def set_style_user(id_user, style):
     cursor.execute('UPDATE Settings SET style_img = ? WHERE id_user = ?', (style, id_user))
+    conn.commit()
+
+# Уствновить негативный промпт для конретного пользователя
+def set_negative_prompt(id_user, np):
+    cursor.execute('UPDATE Settings SET negative_prompt = ? WHERE id_user = ?', (np, id_user))
     conn.commit()

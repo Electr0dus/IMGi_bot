@@ -29,3 +29,8 @@ kb_set_style = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Аниме', callback_data='ANIME'), InlineKeyboardButton(text='Кандинский', callback_data='KANDINSKY')],
     [InlineKeyboardButton(text='Назад', callback_data='back')]
 ], resize_keyboard=True)
+
+# Клавиатура для выхода из настройки негативного промта
+kb_cancel_np = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='Отмена', callback_data='cancel_np')]
+], resize_keyboard=True)

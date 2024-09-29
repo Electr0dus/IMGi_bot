@@ -63,3 +63,25 @@ async def set_KANDINSKY(call: types.CallbackQuery):
     db_set_img.set_style_user(call.from_user.id, "KANDINSKY")
     await call.message.delete()
     await call.message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
+
+# Вызов установки негативного промта
+async def call_negativ_prompt(message: types.Message):
+    await message.answer(text=text_answer.NEGATIVE_PROMPT, parse_mode='HTML', reply_markup=keyboards.kb_cancel_np)
+    await actions.NegativePromptAction.negative_prompt.set()
+
+# Установка негативного промта
+async def set_negative_prompt(message: types.Message, state):
+    await state.update_data(negative=message.text)
+    data = await state.get_data()
+    logging.info(f'SET NEGATIVE PROMPT: user {message.from_user.id}')
+    db_set_img.set_negative_prompt(message.from_user.id, data['negative'])
+    await message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
+    await state.finish()
+
+# Выход из настройки негативного промта
+async def cancel_np(call: types.CallbackQuery, state):
+    await state.finish()
+    await call.message.delete()
+    await call.message.answer(text=text_answer.WELCOME_SETTINGS, parse_mode='HTML', reply_markup=keyboards.kb_settings)
+
+

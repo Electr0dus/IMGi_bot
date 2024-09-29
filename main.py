@@ -48,8 +48,12 @@ dp.callback_query_handler(text='UHD')(setting_func.set_UHD)
 dp.callback_query_handler(text='ANIME')(setting_func.set_ANIME)
 # Установка стиля KANDINSKY
 dp.callback_query_handler(text='KANDINSKY')(setting_func.set_KANDINSKY)
-
-
+# Установка негативного промта
+dp.message_handler(text=['Негативный промт🚫'])(setting_func.call_negativ_prompt)
+# Вызов машины состояния для установки значения
+dp.message_handler(state=actions.NegativePromptAction.negative_prompt)(setting_func.set_negative_prompt)
+# Вернутся в настройку генерации изображения
+dp.callback_query_handler(state=actions.NegativePromptAction.negative_prompt, text='cancel_np')(setting_func.cancel_np)
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
     db_set_img.create_db()  # Создание таблицы с настройками генерации фото
