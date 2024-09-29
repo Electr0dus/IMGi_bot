@@ -5,7 +5,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 import actions
 import config
-from IMGi_bot.function import reg_func
+from IMGi_bot.function import reg_func, setting_func
 from IMGi_bot.DB import db_error, db_rating, db_photo, db_user, db_set_img, db_technikal
 
 bot = Bot(config.BOT_TOKEN)
@@ -15,15 +15,16 @@ logging.basicConfig(level=logging.INFO, filemode='w', filename='py.log',
 
 # Начало работы ботав
 dp.message_handler(commands=['start'])(reg_func.start_bot)
+
 # Регистрация пользователя в боте
 dp.message_handler(commands=['register'])(reg_func.register_bot)
 dp.message_handler(state=actions.RegisterAction.username)(reg_func.add_db_users)
+
 # Генерация изображения
 dp.message_handler(text=['Генерация изображения👨‍🎨'])(reg_func.st_generate_photo)
 dp.message_handler(state=actions.GenerateAction.prompt)(reg_func.st_get_file_name)
 dp.message_handler(state=actions.GenerateAction.file_name)(reg_func.generate_photo)
-# Сохранение сгенерированного изображения
-# dp.callback_query_handler(text='save')(reg_func.save_image)
+
 # Сгенерировать заново изображение
 dp.callback_query_handler(text='repeat')(reg_func.repeat_image)
 # Сохранить сгенерированное изображение
@@ -31,6 +32,8 @@ dp.callback_query_handler(text='save')(reg_func.save_gen_image)
 # Отменить сгенерированное изображение
 dp.callback_query_handler(text='cancel')(reg_func.cancel_image)
 
+# Хэндлеры для настройки генерации изображения
+dp.message_handler(text=['Настройки генерации⚙️'])(setting_func.set_style)
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
     db_set_img.create_db()  # Создание таблицы с настройками генерации фото

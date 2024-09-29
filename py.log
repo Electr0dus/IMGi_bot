@@ -1,61 +1,21 @@
-2024-09-29 16:39:47,094 | INFO | START BOT
-2024-09-29 16:39:47,341 | INFO | Bot: IMGAi [@imagesAI_bot]
-2024-09-29 16:39:47,341 | INFO | Start polling.
-2024-09-29 16:39:57,951 | INFO | START generation image
-2024-09-29 16:39:58,101 | INFO | There are still requests left - 20
-2024-09-29 16:40:08,197 | INFO | There are still requests left - 19
-2024-09-29 16:40:18,326 | INFO | There are still requests left - 18
-2024-09-29 16:40:28,456 | INFO | There are still requests left - 17
-2024-09-29 16:40:38,568 | INFO | There are still requests left - 16
-2024-09-29 16:40:48,662 | INFO | There are still requests left - 15
-2024-09-29 16:40:48,922 | INFO | Successfully generate generic_photo_user/678552784/fly.png
-2024-09-29 16:40:58,982 | INFO | Image re-engineering 678552784
-2024-09-29 16:40:59,381 | INFO | START generation image
-2024-09-29 16:40:59,524 | INFO | There are still requests left - 20
-2024-09-29 16:41:09,621 | INFO | There are still requests left - 19
-2024-09-29 16:41:19,741 | INFO | There are still requests left - 18
-2024-09-29 16:41:29,841 | INFO | There are still requests left - 17
-2024-09-29 16:41:39,972 | INFO | There are still requests left - 16
-2024-09-29 16:41:50,074 | INFO | There are still requests left - 15
-2024-09-29 16:41:50,212 | INFO | Successfully generate generic_photo_user/678552784/fly.png
-2024-09-29 16:41:55,811 | INFO | Canceling photo saving user - 678552784
-2024-09-29 16:41:55,811 | INFO | The image was deleted successfully fly.png
-2024-09-29 16:42:10,636 | INFO | START generation image
-2024-09-29 16:42:10,781 | INFO | There are still requests left - 20
-2024-09-29 16:42:20,910 | INFO | There are still requests left - 19
-2024-09-29 16:42:30,990 | INFO | There are still requests left - 18
-2024-09-29 16:42:41,121 | INFO | There are still requests left - 17
-2024-09-29 16:42:51,250 | INFO | There are still requests left - 16
-2024-09-29 16:43:01,376 | INFO | There are still requests left - 15
-2024-09-29 16:43:01,593 | INFO | Successfully generate generic_photo_user/678552784/fly.png
-2024-09-29 16:43:06,302 | INFO | Image re-engineering 678552784
-2024-09-29 16:43:06,628 | INFO | START generation image
-2024-09-29 16:43:06,726 | INFO | There are still requests left - 20
-2024-09-29 16:43:16,816 | INFO | There are still requests left - 19
-2024-09-29 16:43:26,956 | INFO | There are still requests left - 18
-2024-09-29 16:43:37,060 | INFO | There are still requests left - 17
-2024-09-29 16:43:47,188 | INFO | There are still requests left - 16
-2024-09-29 16:43:57,307 | INFO | There are still requests left - 15
-2024-09-29 16:43:57,455 | INFO | Successfully generate generic_photo_user/678552784/fly.png
-2024-09-29 16:44:01,880 | INFO | The image fly.png was saved successfully
-2024-09-29 16:44:22,170 | INFO | START generation image
-2024-09-29 16:44:22,320 | INFO | There are still requests left - 20
-2024-09-29 16:44:32,422 | INFO | There are still requests left - 19
-2024-09-29 16:44:42,536 | INFO | There are still requests left - 18
-2024-09-29 16:44:52,661 | INFO | There are still requests left - 17
-2024-09-29 16:45:02,738 | INFO | There are still requests left - 16
-2024-09-29 16:45:12,869 | INFO | There are still requests left - 15
-2024-09-29 16:45:13,114 | INFO | Successfully generate generic_photo_user/678552784/cat.png
-2024-09-29 16:45:18,261 | INFO | The image cat.png was saved successfully
-2024-09-29 16:45:44,441 | WARNING | This file is already in the database: cat.png
-2024-09-29 16:45:45,749 | WARNING | Invalid file name: vdfv
-2024-09-29 16:45:53,522 | INFO | START generation image
-2024-09-29 16:45:53,644 | INFO | There are still requests left - 20
-2024-09-29 16:46:03,774 | INFO | There are still requests left - 19
-2024-09-29 16:46:13,891 | INFO | There are still requests left - 18
-2024-09-29 16:46:24,011 | INFO | There are still requests left - 17
-2024-09-29 16:46:34,099 | INFO | There are still requests left - 16
-2024-09-29 16:46:34,318 | INFO | Successfully generate generic_photo_user/678552784/cat_punk.png
-2024-09-29 16:46:49,883 | INFO | The image cat_punk.png was saved successfully
-2024-09-29 16:46:59,719 | INFO | Stop polling...
-2024-09-29 16:46:59,719 | WARNING | Goodbye!
+2024-09-29 17:47:11,776 | INFO | START BOT
+2024-09-29 17:47:12,037 | INFO | Bot: IMGAi [@imagesAI_bot]
+2024-09-29 17:47:12,037 | INFO | Start polling.
+2024-09-29 17:47:17,074 | ERROR | Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<Dispatcher._process_polling_updates() done, defined at D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py:410> exception=FileNotFoundError(2, 'No such file or directory')>
+Traceback (most recent call last):
+  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 418, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 236, in process_updates
+    return await asyncio.gather(*tasks)
+  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 257, in process_update
+    return await self.message_handlers.notify(update.message)
+  File "D:\Рабочий стол\Urban University\DIPLOM_project\.venv\lib\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "D:\Рабочий стол\Urban University\DIPLOM_project\IMGi_bot\function\setting_func.py", line 16, in set_style
+    with open('./image_for_settings/style.png', mode='rb') as file:
+FileNotFoundError: [Errno 2] No such file or directory: './image_for_settings/style.png'
+2024-09-29 17:50:20,937 | INFO | Stop polling...
+2024-09-29 17:50:20,937 | WARNING | Goodbye!
