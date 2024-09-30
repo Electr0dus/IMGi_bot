@@ -54,6 +54,18 @@ dp.message_handler(text=['Негативный промт🚫'])(setting_func.ca
 dp.message_handler(state=actions.NegativePromptAction.negative_prompt)(setting_func.set_negative_prompt)
 # Вернутся в настройку генерации изображения
 dp.callback_query_handler(state=actions.NegativePromptAction.negative_prompt, text='cancel_np')(setting_func.cancel_np)
+# Зайти в меню настройки размера изображения
+dp.message_handler(text=['Размер изображения🔲'])(setting_func.switch_size_image)
+# Установить размер 16 на 9
+dp.callback_query_handler(text='16:9')(setting_func.set_16by9)
+# Установить размер 9 на 16
+dp.callback_query_handler(text='9:16')(setting_func.set_9by16)
+# Установить размер 3 на 2
+dp.callback_query_handler(text='3:2')(setting_func.set_3by2)
+# Установить размер 2 на 3
+dp.callback_query_handler(text='2:3')(setting_func.set_2by3)
+
+
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
     db_set_img.create_db()  # Создание таблицы с настройками генерации фото

@@ -34,3 +34,10 @@ kb_set_style = InlineKeyboardMarkup(inline_keyboard=[
 kb_cancel_np = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Отмена', callback_data='cancel_np')]
 ], resize_keyboard=True)
+
+# Клавиатура для выбора размера изображения при генерации которое будет
+kb_set_size = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='1️⃣6️⃣:9️⃣', callback_data='16:9'), InlineKeyboardButton(text='9️⃣:1️⃣6️⃣', callback_data='9:16')],
+    [InlineKeyboardButton(text='3️⃣:2️⃣', callback_data='3:2'), InlineKeyboardButton(text='2️⃣:3️⃣', callback_data='2:3')],
+    [InlineKeyboardButton(text='Назад', callback_data='back')]
+], resize_keyboard=True)

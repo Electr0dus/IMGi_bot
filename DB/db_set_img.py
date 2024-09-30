@@ -42,3 +42,8 @@ def set_style_user(id_user, style):
 def set_negative_prompt(id_user, np):
     cursor.execute('UPDATE Settings SET negative_prompt = ? WHERE id_user = ?', (np, id_user))
     conn.commit()
+
+# Установить размер изображения
+def set_size_image(id_user, width, height):
+    cursor.execute('UPDATE Settings SET width = ?, height = ? WHERE id_user = ?', (width, height, id_user))
+    conn.commit()

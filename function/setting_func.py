@@ -85,3 +85,41 @@ async def cancel_np(call: types.CallbackQuery, state):
     await call.message.answer(text=text_answer.WELCOME_SETTINGS, parse_mode='HTML', reply_markup=keyboards.kb_settings)
 
 
+# Настройка размера изображения
+async def switch_size_image(message: types.Message):
+    for img in range(1,5):
+        with open(f'D:/Рабочий стол/Urban University/DIPLOM_project/IMGi_bot/function/image_for_settings/{img}.png', mode='rb') as photo:
+            await bot.send_photo(chat_id=message.from_user.id, photo=photo)
+    await message.answer(text=text_answer.SET_SIZE, parse_mode='HTML', reply_markup=keyboards.kb_set_size)
+
+
+# Установка формата 16:9
+async def set_16by9(call: types.CallbackQuery):
+    logging.info(f'SET SIZE "16:9": user {call.from_user.id}')
+    db_set_img.set_size_image(call.from_user.id, 1024, 576)
+    await call.message.delete()
+    await call.message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
+
+
+# Установка формата 9:16
+async def set_9by16(call: types.CallbackQuery):
+    logging.info(f'SET SIZE "9:16": user {call.from_user.id}')
+    db_set_img.set_size_image(call.from_user.id, 576, 1024)
+    await call.message.delete()
+    await call.message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
+
+
+# Установка формата 3:2
+async def set_3by2(call: types.CallbackQuery):
+    logging.info(f'SET SIZE "3:2": user {call.from_user.id}')
+    db_set_img.set_size_image(call.from_user.id, 1024, 680)
+    await call.message.delete()
+    await call.message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
+
+
+# Установка формата 2:3
+async def set_2by3(call: types.CallbackQuery):
+    logging.info(f'SET SIZE "2:3": user {call.from_user.id}')
+    db_set_img.set_size_image(call.from_user.id, 680, 1024)
+    await call.message.delete()
+    await call.message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
