@@ -17,7 +17,7 @@ def create_db():
 
 
 # Создать таблицу при регистрации пользователя
-def create_user(id_user: str):
+def create_user(id_user):
     cursor.execute('INSERT INTO Technical (id_user) VALUES (?)',
                    (id_user,))
     conn.commit()

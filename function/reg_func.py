@@ -7,7 +7,7 @@ from IMGi_bot import config
 from IMGi_bot import getIMG
 from IMGi_bot import keyboards
 from IMGi_bot import text_answer
-from IMGi_bot.DB import db_photo, db_user, db_set_img, db_rating, db_technikal
+from IMGi_bot.DB import db_photo, db_user, db_set_img, db_rating, db_technikal, db_tech_image
 
 bot = Bot(config.BOT_TOKEN)
 
@@ -33,6 +33,7 @@ async def add_db_users(message: types.Message, state):
         db_user.create(message.from_user.id, username['username'])
         db_set_img.create_user_id(message.from_user.id)
         db_technikal.create_user(message.from_user.id)
+        db_tech_image.create_user_im(message.from_user.id)
         # Создать папку в которой будут хранится сгенерированные фото пользователей
         getIMG.make_dir_user(str(message.from_user.id))
 
@@ -68,7 +69,6 @@ async def generate_photo(message: types.Message, state):
     data = await state.get_data()
     # Получить данные настройки запроса пользователя
     data_settings = db_set_img.get_set_user(message.from_user.id)
-    print(data_settings)
     # print(data_settings[0][0]) - стиль
     # print(data_settings[0][2]) - негативный промпт
     # print(data_settings[0][3]) - ширина

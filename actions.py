@@ -14,3 +14,7 @@ class GenerateAction(StatesGroup):
 # Машина состояния для ввода негативного промта
 class NegativePromptAction(StatesGroup):
     negative_prompt = State()
+
+# Машина состояния для получения имени файла изображения
+class ShownImageActions(StatesGroup):
+    name_image = State()

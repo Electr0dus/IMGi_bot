@@ -41,3 +41,14 @@ kb_set_size = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='1️⃣:1️⃣', callback_data='1:1')],
     [InlineKeyboardButton(text='Назад', callback_data='back')]
 ], resize_keyboard=True)
+
+
+# Клавиатура для выхода из выбора файла для просмотра
+kb_cancel_sh = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='Отмена', callback_data='cancel_sh')]
+], resize_keyboard=True)
+
+# Клавиатура для уже открытого изображения
+kb_open_image = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='Сохранить✅', callback_data='save_image_shown'), InlineKeyboardButton(text='Отмена🚫', callback_data='cancel_save_image')]
+], resize_keyboard=True)

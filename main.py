@@ -5,8 +5,8 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 import actions
 import config
-from IMGi_bot.function import reg_func, setting_func
-from IMGi_bot.DB import db_error, db_rating, db_photo, db_user, db_set_img, db_technikal
+from IMGi_bot.function import reg_func, setting_func, shown_func
+from IMGi_bot.DB import db_error, db_rating, db_photo, db_user, db_set_img, db_technikal, db_tech_image
 
 bot = Bot(config.BOT_TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
@@ -68,6 +68,12 @@ dp.callback_query_handler(text='2:3')(setting_func.set_2by3)
 dp.callback_query_handler(text='1:1')(setting_func.set_1by1)
 #Получить текущие настройки бота
 dp.message_handler(text=['Мои настройки🔧'])(setting_func.current_settings_user)
+#Работа кнопки "Просмотр изображения"
+dp.message_handler(text=['Просмотр изображения🖼'])(shown_func.all_image_user)
+# Машина состояний просмотра изображения
+dp.message_handler(state=actions.ShownImageActions.name_image)(shown_func.actions_shown_image)
+# Выйти из просмотра всех файлов
+dp.callback_query_handler(state=actions.ShownImageActions.name_image, text='cancel_sh')(shown_func.exit_sh_file)
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
     db_set_img.create_db()  # Создание таблицы с настройками генерации фото
@@ -75,6 +81,7 @@ def main():
     db_rating.create_db()  # Создание таблицы с рейтингом фото
     db_error.create_db()  # Создание таблицы с ошибками, оставленными пользователями
     db_technikal.create_db()  # Создание таблицы с технической информацией для действий пользователя со генерированным изображением
+    db_tech_image.create_db() # Создать таблицу с технической информацией для сохранения фото
 
     logging.info('START BOT')
     executor.start_polling(dp, skip_updates=False)
