@@ -74,6 +74,8 @@ dp.message_handler(text=['Просмотр изображения🖼'])(shown_f
 dp.message_handler(state=actions.ShownImageActions.name_image)(shown_func.actions_shown_image)
 # Выйти из просмотра всех файлов
 dp.callback_query_handler(state=actions.ShownImageActions.name_image, text='cancel_sh')(shown_func.exit_sh_file)
+# Выбрать другое изображение или выйти в основное меню
+dp.callback_query_handler(text='cancel_save_image')(shown_func.cancel_current_image)
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
     db_set_img.create_db()  # Создание таблицы с настройками генерации фото
@@ -84,7 +86,7 @@ def main():
     db_tech_image.create_db() # Создать таблицу с технической информацией для сохранения фото
 
     logging.info('START BOT')
-    executor.start_polling(dp, skip_updates=False)
+    executor.start_polling(dp, skip_updates=True)
 
 
 # , on_startup=getIMG.generate_image

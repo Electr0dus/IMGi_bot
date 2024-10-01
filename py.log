@@ -1,7 +1,14 @@
-2024-10-01 22:56:20,372 | INFO | START BOT
-2024-10-01 22:56:20,605 | INFO | Bot: IMGAi [@imagesAI_bot]
-2024-10-01 22:56:20,606 | INFO | Start polling.
-2024-10-01 22:56:34,942 | INFO | COMMAND "START" username - 678552784
-2024-10-01 22:56:40,317 | INFO | User 678552784 successfully register
-2024-10-01 22:56:52,470 | INFO | Stop polling...
-2024-10-01 22:56:52,471 | WARNING | Goodbye!
+2024-10-01 23:39:45,986 | INFO | START BOT
+2024-10-01 23:39:46,172 | INFO | Bot: IMGAi [@imagesAI_bot]
+2024-10-01 23:39:46,287 | WARNING | Updates were skipped successfully.
+2024-10-01 23:39:46,287 | INFO | Start polling.
+2024-10-01 23:39:53,875 | WARNING | User 678552784 is register
+2024-10-01 23:39:55,273 | INFO | User 678552784 scans files
+2024-10-01 23:40:03,325 | INFO | User 678552784 open file impr.png
+2024-10-01 23:40:44,059 | INFO | User 678552784 scans files
+2024-10-01 23:40:50,285 | INFO | User 678552784 open file impr.png
+2024-10-01 23:41:53,515 | INFO | User 678552784 open file mazda.png
+2024-10-01 23:41:59,318 | INFO | Menu Settings: user 678552784
+2024-10-01 23:42:00,506 | INFO | Bact to main menu: user 678552784
+2024-10-01 23:42:04,612 | INFO | Stop polling...
+2024-10-01 23:42:04,613 | WARNING | Goodbye!

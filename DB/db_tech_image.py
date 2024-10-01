@@ -19,3 +19,9 @@ def create_user_im(id_user):
     cursor.execute('INSERT INTO Tech_image (id_user) VALUES (?)',
                    (id_user,))
     conn.commit()
+
+# Добавить выбранное изображение для просмотра
+def add_current_image(id_user, current_image):
+    cursor.execute('UPDATE Tech_image SET current_image = ? WHERE id_user = ?',
+                   (current_image, id_user))
+    conn.commit()
