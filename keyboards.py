@@ -10,9 +10,8 @@ kb_main_menu = ReplyKeyboardMarkup(keyboard=[
 
 # Клавиатура для выбора настройки генерации
 kb_settings = ReplyKeyboardMarkup(keyboard=[
-    [KeyboardButton(text='Стиль✨')],
-    [KeyboardButton(text='Негативный промт🚫')],
-    [KeyboardButton(text='Размер изображения🔲')],
+    [KeyboardButton(text='Стиль✨'), KeyboardButton(text='Негативный промт🚫')],
+    [KeyboardButton(text='Размер изображения🔲'), KeyboardButton(text='Мои настройки🔧')],
     [KeyboardButton(text='Назад🔙')]
 ], resize_keyboard=True, one_time_keyboard=True)
 
@@ -39,5 +38,6 @@ kb_cancel_np = InlineKeyboardMarkup(inline_keyboard=[
 kb_set_size = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='1️⃣6️⃣:9️⃣', callback_data='16:9'), InlineKeyboardButton(text='9️⃣:1️⃣6️⃣', callback_data='9:16')],
     [InlineKeyboardButton(text='3️⃣:2️⃣', callback_data='3:2'), InlineKeyboardButton(text='2️⃣:3️⃣', callback_data='2:3')],
+    [InlineKeyboardButton(text='1️⃣:1️⃣', callback_data='1:1')],
     [InlineKeyboardButton(text='Назад', callback_data='back')]
 ], resize_keyboard=True)

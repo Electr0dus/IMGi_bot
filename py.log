@@ -1,33 +1,38 @@
-2024-09-30 22:03:56,955 | INFO | START BOT
-2024-09-30 22:03:57,181 | INFO | Bot: IMGAi [@imagesAI_bot]
-2024-09-30 22:03:57,182 | INFO | Start polling.
-2024-09-30 22:04:03,615 | INFO | Menu Settings: user 678552784
-2024-09-30 22:04:08,888 | INFO | SET SIZE "9:16": user 678552784
-2024-09-30 22:04:13,516 | INFO | Bact to main menu: user 678552784
-2024-09-30 22:04:22,905 | INFO | START generation image
-2024-09-30 22:04:23,051 | INFO | There are still requests left - 20
-2024-09-30 22:04:33,124 | INFO | There are still requests left - 19
-2024-09-30 22:04:43,241 | INFO | There are still requests left - 18
-2024-09-30 22:04:43,382 | INFO | Successfully generate generic_photo_user/678552784/cat1.png
-2024-09-30 22:04:49,334 | INFO | The image cat1.png was saved successfully
-2024-09-30 22:04:57,838 | INFO | Menu Settings: user 678552784
-2024-09-30 22:05:01,767 | INFO | SET SIZE "3:2": user 678552784
-2024-09-30 22:05:20,491 | INFO | Bact to main menu: user 678552784
-2024-09-30 22:05:27,699 | INFO | START generation image
-2024-09-30 22:05:27,799 | INFO | There are still requests left - 20
-2024-09-30 22:05:37,922 | INFO | There are still requests left - 19
-2024-09-30 22:05:47,991 | INFO | There are still requests left - 18
-2024-09-30 22:05:48,165 | INFO | Successfully generate generic_photo_user/678552784/cat2.png
-2024-09-30 22:06:03,685 | INFO | The image cat2.png was saved successfully
-2024-09-30 22:06:12,478 | INFO | Menu Settings: user 678552784
-2024-09-30 22:06:15,950 | INFO | SET SIZE "2:3": user 678552784
-2024-09-30 22:06:21,285 | INFO | Bact to main menu: user 678552784
-2024-09-30 22:06:31,177 | INFO | START generation image
-2024-09-30 22:06:31,282 | INFO | There are still requests left - 20
-2024-09-30 22:06:41,404 | INFO | There are still requests left - 19
-2024-09-30 22:06:51,509 | INFO | There are still requests left - 18
-2024-09-30 22:06:51,740 | INFO | Successfully generate generic_photo_user/678552784/cat3.png
-2024-09-30 22:06:58,494 | INFO | The image cat3.png was saved successfully
-2024-09-30 22:07:08,310 | INFO | Menu Settings: user 678552784
-2024-09-30 22:07:26,418 | INFO | Stop polling...
-2024-09-30 22:07:26,419 | WARNING | Goodbye!
+2024-10-01 19:09:17,612 | INFO | START BOT
+2024-10-01 19:09:17,834 | INFO | Bot: IMGAi [@imagesAI_bot]
+2024-10-01 19:09:17,834 | INFO | Start polling.
+2024-10-01 19:09:51,937 | INFO | User 678552784 successfully register
+2024-10-01 19:09:54,233 | INFO | Menu Settings: user 678552784
+2024-10-01 19:10:03,504 | INFO | Bact to main menu: user 678552784
+2024-10-01 19:10:11,361 | INFO | START generation image
+2024-10-01 19:10:11,468 | INFO | There are still requests left - 20
+2024-10-01 19:10:21,591 | INFO | There are still requests left - 19
+2024-10-01 19:10:31,702 | INFO | There are still requests left - 18
+2024-10-01 19:10:31,873 | INFO | Successfully generate generic_photo_user/678552784/bike.png
+2024-10-01 19:10:39,807 | INFO | The image bike.png was saved successfully
+2024-10-01 19:13:12,690 | INFO | Menu Settings: user 678552784
+2024-10-01 19:13:20,320 | INFO | SET SIZE "3:2": user 678552784
+2024-10-01 19:13:22,271 | INFO | Setting the style: user 678552784
+2024-10-01 19:13:23,801 | INFO | SET STYLE "ANIME": user 678552784
+2024-10-01 19:13:30,839 | INFO | Bact to main menu: user 678552784
+2024-10-01 19:13:42,687 | INFO | START generation image
+2024-10-01 19:13:42,826 | INFO | There are still requests left - 20
+2024-10-01 19:13:52,894 | INFO | There are still requests left - 19
+2024-10-01 19:14:03,040 | INFO | There are still requests left - 18
+2024-10-01 19:14:03,247 | INFO | Successfully generate generic_photo_user/678552784/supr.png
+2024-10-01 19:14:18,338 | INFO | The image supr.png was saved successfully
+2024-10-01 19:14:31,569 | INFO | START generation image
+2024-10-01 19:14:31,703 | INFO | There are still requests left - 20
+2024-10-01 19:14:41,801 | INFO | There are still requests left - 19
+2024-10-01 19:14:51,895 | INFO | There are still requests left - 18
+2024-10-01 19:14:52,051 | INFO | Successfully generate generic_photo_user/678552784/girl.png
+2024-10-01 19:14:55,758 | INFO | Image re-engineering 678552784
+2024-10-01 19:14:56,198 | INFO | START generation image
+2024-10-01 19:14:56,293 | INFO | There are still requests left - 20
+2024-10-01 19:15:06,410 | INFO | There are still requests left - 19
+2024-10-01 19:15:16,526 | INFO | There are still requests left - 18
+2024-10-01 19:15:16,733 | INFO | Successfully generate generic_photo_user/678552784/girl.png
+2024-10-01 19:16:21,497 | INFO | Canceling photo saving user - 678552784
+2024-10-01 19:16:21,497 | INFO | The image was deleted successfully girl.png
+2024-10-01 19:16:49,616 | INFO | Stop polling...
+2024-10-01 19:16:49,616 | WARNING | Goodbye!

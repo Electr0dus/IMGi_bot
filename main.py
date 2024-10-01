@@ -64,8 +64,10 @@ dp.callback_query_handler(text='9:16')(setting_func.set_9by16)
 dp.callback_query_handler(text='3:2')(setting_func.set_3by2)
 # Установить размер 2 на 3
 dp.callback_query_handler(text='2:3')(setting_func.set_2by3)
-
-
+# Установить размер 1 на 1
+dp.callback_query_handler(text='1:1')(setting_func.set_1by1)
+#Получить текущие настройки бота
+dp.message_handler(text=['Мои настройки🔧'])(setting_func.current_settings_user)
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
     db_set_img.create_db()  # Создание таблицы с настройками генерации фото

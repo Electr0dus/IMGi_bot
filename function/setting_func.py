@@ -38,7 +38,7 @@ async def bact_settings(call: types.CallbackQuery):
 # Установка стиля "Стандартный"
 async def set_DEFAULT(call: types.CallbackQuery):
     logging.info(f'SET STYLE "DEFAULT": user {call.from_user.id}')
-    db_set_img.set_style_user(call.from_user.id, "DEFAULT")
+    db_set_img.set_style_user(call.from_user.id, "DEFAULT", 'Стандартный')
     await call.message.delete()
     await call.message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
 
@@ -46,21 +46,21 @@ async def set_DEFAULT(call: types.CallbackQuery):
 # Установка стиля "Реалистичный"
 async def set_UHD(call: types.CallbackQuery):
     logging.info(f'SET STYLE "UHD": user {call.from_user.id}')
-    db_set_img.set_style_user(call.from_user.id, "UHD")
+    db_set_img.set_style_user(call.from_user.id, "UHD", 'Реалистичный')
     await call.message.delete()
     await call.message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
 
 # Установка стиля "ANIME"
 async def set_ANIME(call: types.CallbackQuery):
     logging.info(f'SET STYLE "ANIME": user {call.from_user.id}')
-    db_set_img.set_style_user(call.from_user.id, "ANIME")
+    db_set_img.set_style_user(call.from_user.id, "ANIME", 'Аниме')
     await call.message.delete()
     await call.message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
 
 # Установка стиля "KANDINSKY"
 async def set_KANDINSKY(call: types.CallbackQuery):
     logging.info(f'SET STYLE "KANDINSKY": user {call.from_user.id}')
-    db_set_img.set_style_user(call.from_user.id, "KANDINSKY")
+    db_set_img.set_style_user(call.from_user.id, "KANDINSKY", 'Кандинский')
     await call.message.delete()
     await call.message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
 
@@ -87,7 +87,7 @@ async def cancel_np(call: types.CallbackQuery, state):
 
 # Настройка размера изображения
 async def switch_size_image(message: types.Message):
-    for img in range(1,5):
+    for img in range(1, 6):
         with open(f'D:/Рабочий стол/Urban University/DIPLOM_project/IMGi_bot/function/image_for_settings/{img}.png', mode='rb') as photo:
             await bot.send_photo(chat_id=message.from_user.id, photo=photo)
     await message.answer(text=text_answer.SET_SIZE, parse_mode='HTML', reply_markup=keyboards.kb_set_size)
@@ -96,7 +96,7 @@ async def switch_size_image(message: types.Message):
 # Установка формата 16:9
 async def set_16by9(call: types.CallbackQuery):
     logging.info(f'SET SIZE "16:9": user {call.from_user.id}')
-    db_set_img.set_size_image(call.from_user.id, 1024, 576)
+    db_set_img.set_size_image(call.from_user.id, 1024, 576, '16:9')
     await call.message.delete()
     await call.message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
 
@@ -104,7 +104,7 @@ async def set_16by9(call: types.CallbackQuery):
 # Установка формата 9:16
 async def set_9by16(call: types.CallbackQuery):
     logging.info(f'SET SIZE "9:16": user {call.from_user.id}')
-    db_set_img.set_size_image(call.from_user.id, 576, 1024)
+    db_set_img.set_size_image(call.from_user.id, 576, 1024, '9:16')
     await call.message.delete()
     await call.message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
 
@@ -112,7 +112,7 @@ async def set_9by16(call: types.CallbackQuery):
 # Установка формата 3:2
 async def set_3by2(call: types.CallbackQuery):
     logging.info(f'SET SIZE "3:2": user {call.from_user.id}')
-    db_set_img.set_size_image(call.from_user.id, 1024, 680)
+    db_set_img.set_size_image(call.from_user.id, 1024, 680, '3:2')
     await call.message.delete()
     await call.message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
 
@@ -120,6 +120,23 @@ async def set_3by2(call: types.CallbackQuery):
 # Установка формата 2:3
 async def set_2by3(call: types.CallbackQuery):
     logging.info(f'SET SIZE "2:3": user {call.from_user.id}')
-    db_set_img.set_size_image(call.from_user.id, 680, 1024)
+    db_set_img.set_size_image(call.from_user.id, 680, 1024, '2:3')
     await call.message.delete()
     await call.message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
+
+# Установка формата 1:1
+async def set_1by1(call: types.CallbackQuery):
+    logging.info(f'SET SIZE "1:1": user {call.from_user.id}')
+    db_set_img.set_size_image(call.from_user.id, 1024, 1024, '1:1')
+    await call.message.delete()
+    await call.message.answer(text=text_answer.STYLE_SUSSCES, parse_mode='HTML', reply_markup=keyboards.kb_settings)
+
+
+# Просмотр текущих настроек пользователя генерации изображения
+async def current_settings_user(message: types.Message):
+    data_settings = db_set_img.get_set_user(message.from_user.id)
+    await message.answer(text=f'<b>Стиль:</b> <em>{data_settings[0][1]}</em>\n'
+                              f'<b>Негативный промт:</b> <em>{data_settings[0][2]}</em>\n'
+                              f'<b>Размер:</b> <em>{data_settings[0][5]}</em>\n',
+                         parse_mode='HTML',
+                         reply_markup=keyboards.kb_settings)

@@ -11,9 +11,11 @@ def create_db():
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS Settings(
         style_img TEXT DEFAULT "DEFAULT",
-        negative_prompt TEXT DEFAULT None,
+        style_shown TEXT DEFAULT "Стандартный",
+        negative_prompt TEXT DEFAULT "Нет",
         width INT DEFAULT 1024,
         height INT DEFAULT 1024,
+        current_size TEXT DEFAULT "1:1",
         id_user INT PRIMARY KEY,
         FOREIGN KEY (id_user) REFERENCES Users(id_user)
     );
@@ -34,8 +36,9 @@ def create_user_id(id_tg):
 
 
 # Установить стиль генерации для конкретного пользователя
-def set_style_user(id_user, style):
-    cursor.execute('UPDATE Settings SET style_img = ? WHERE id_user = ?', (style, id_user))
+def set_style_user(id_user, style, style_show):
+    cursor.execute('UPDATE Settings SET style_img = ?, style_shown = ?  WHERE id_user = ?',
+                   (style, style_show, id_user))
     conn.commit()
 
 # Уствновить негативный промпт для конретного пользователя
@@ -44,6 +47,8 @@ def set_negative_prompt(id_user, np):
     conn.commit()
 
 # Установить размер изображения
-def set_size_image(id_user, width, height):
-    cursor.execute('UPDATE Settings SET width = ?, height = ? WHERE id_user = ?', (width, height, id_user))
+def set_size_image(id_user, width, height, current_size):
+    cursor.execute('UPDATE Settings SET width = ?, height = ?, current_size = ? WHERE id_user = ?',
+                   (width, height, current_size, id_user))
     conn.commit()
+
