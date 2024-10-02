@@ -50,5 +50,5 @@ kb_cancel_sh = InlineKeyboardMarkup(inline_keyboard=[
 
 # Клавиатура для уже открытого изображения
 kb_open_image = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='Сохранить✅', callback_data='save_image_shown'), InlineKeyboardButton(text='Отмена🚫', callback_data='cancel_save_image')]
+    [InlineKeyboardButton(text='Скачать💾', callback_data='save_image_shown'), InlineKeyboardButton(text='Отмена🚫', callback_data='cancel_save_image')]
 ], resize_keyboard=True)

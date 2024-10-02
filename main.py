@@ -76,6 +76,8 @@ dp.message_handler(state=actions.ShownImageActions.name_image)(shown_func.action
 dp.callback_query_handler(state=actions.ShownImageActions.name_image, text='cancel_sh')(shown_func.exit_sh_file)
 # Выбрать другое изображение или выйти в основное меню
 dp.callback_query_handler(text='cancel_save_image')(shown_func.cancel_current_image)
+# Сохранение изображения на устройство
+dp.callback_query_handler(text='save_image_shown')(shown_func.save_current_image)
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
     db_set_img.create_db()  # Создание таблицы с настройками генерации фото

@@ -49,7 +49,6 @@ async def actions_shown_image(message: types.Message, state):
             db_tech_image.add_current_image(message.from_user.id, data_image['name_image'])
             logging.info(f"User {message.from_user.id} open file {data_image['name_image']}")
             await state.finish()
-
     except FileNotFoundError:
         await message.answer(text=f"❌<b>ФАЙЛА <em>\"{data_image['name_image']}\"</em> НЕ СУЩЕСТВУЕТ</b>❌",
                              parse_mode='HTML')
@@ -62,3 +61,19 @@ async def cancel_current_image(call: types.CallbackQuery):
     db_tech_image.add_current_image(call.from_user.id, None)
     await call.message.answer(text=text_answer.OTHER_IMAGE, parse_mode='HTML', reply_markup=keyboards.kb_cancel_sh)
     await actions.ShownImageActions.name_image.set()
+
+#Сохранение текущего выбранного изображения на устройство
+async def save_current_image(call: types.CallbackQuery):
+    # Получить текущее изображение для сохранения
+    await call.message.delete()
+    image_current = db_tech_image.get_current_image(call.from_user.id)
+    path_local = f'D:/Рабочий стол/Urban University/DIPLOM_project/IMGi_bot/generic_photo_user/{call.from_user.id}/{image_current[0]}'
+    with open(path_local, mode='rb') as file_image:
+        await bot.send_document(chat_id=call.from_user.id,
+                                document=file_image,
+                                reply_markup=keyboards.kb_main_menu)
+    # Затереть данные в технической таблице текущего изображения
+    logging.info(f'File {image_current[0]} downloaded successfully User: {call.from_user.id}')
+    db_tech_image.add_current_image(call.from_user.id, None)
+
+

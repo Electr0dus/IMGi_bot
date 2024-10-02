@@ -25,3 +25,10 @@ def add_current_image(id_user, current_image):
     cursor.execute('UPDATE Tech_image SET current_image = ? WHERE id_user = ?',
                    (current_image, id_user))
     conn.commit()
+
+# Получить текущий фалй пользователя для сохранения на устройство
+def get_current_image(id_user):
+    cursor.execute('SELECT current_image FROM Tech_image WHERE id_user = ?', (id_user,))
+    conn.commit()
+    data = cursor.fetchall()
+    return data[0]
