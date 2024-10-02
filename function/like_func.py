@@ -7,7 +7,7 @@ from IMGi_bot import config
 from IMGi_bot import getIMG
 from IMGi_bot import keyboards
 from IMGi_bot import text_answer
-from IMGi_bot.DB import db_photo, db_user, db_set_img, db_rating, db_technikal, db_tech_image
+from IMGi_bot.DB import db_photo, db_check_like, db_set_img, db_rating, db_technikal, db_tech_image
 
 bot = Bot(config.BOT_TOKEN)
 
@@ -92,15 +92,23 @@ async def send_like_image(call: types.CallbackQuery):
     # Уменьшаем значение на 1, т.к. при просмотре этот параметр уже увеличился на 1
     current_number -= 1
     data_image = db_photo.get_all_image()
-    # Получить текущее значение лайков
-    current_like = db_rating.get_like_current(call.from_user.id, data_image[current_number][0])
-    # Увеличить значение лайка на один
-    current_like += 1
-    # Записать новое значение лайка в БД
-    db_rating.send_like_image(call.from_user.id, data_image[current_number][0], current_like)
-    logging.info(f'Like is set image {data_image[current_number][0]} User: {call.from_user.id}')
-    await call.message.answer(text=text_answer.STYLE_SUSSCES,
+    # СДЕЛАТЬ ПРОВЕРКУ НА ТО, ПОСТАВИЛ ЛИ УЖЕ ЛАЙК ДАННЫЙ ПОЛЬЗОВАТЕЛЬ ИЗОБРАЖЕНИЮ ИЛИ ЕЩЁ НЕТ
+    # Если вернёт true, значит данное изображение текущий пользователь не лайкнул
+    if db_check_like.check_like_image(call.from_user.id, data_image[current_number][1], data_image[current_number][0]):
+        # Получить текущее значение лайков
+        current_like = db_rating.get_like_current(call.from_user.id, data_image[current_number][0])
+        # Увеличить значение лайка на один
+        current_like += 1
+        # Добавить в БД кто лайкнул фото и чьё это изображение с его именем
+        db_check_like.add_like_image(call.from_user.id, data_image[current_number][1], data_image[current_number][0])
+        # Записать новое значение лайка в БД
+        db_rating.send_like_image(call.from_user.id, data_image[current_number][0], current_like)
+        logging.info(f'Like is set image {data_image[current_number][0]} User: {call.from_user.id}')
+        await call.message.answer(text=text_answer.STYLE_SUSSCES,
                               parse_mode='HTML')
+    else: # Если вернуло False, значит этот пользователь уже лайкнул текущее изображение
+        await call.message.answer(text=text_answer.DONT_LIKE, parse_mode='HTML')
+        logging.info(f'Like WAS set image {data_image[current_number][0]} User: {call.from_user.id}')
 
 # Сохранение фото при пролистывании всех изображений
 async def save_like_image(call: types.CallbackQuery):

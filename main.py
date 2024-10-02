@@ -6,7 +6,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 import actions
 import config
 from IMGi_bot.function import reg_func, setting_func, shown_func, like_func
-from IMGi_bot.DB import db_error, db_rating, db_photo, db_user, db_set_img, db_technikal, db_tech_image
+from IMGi_bot.DB import db_error, db_rating, db_photo, db_user, db_set_img, db_technikal, db_tech_image, db_check_like
 
 bot = Bot(config.BOT_TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
@@ -98,6 +98,7 @@ def main():
     db_error.create_db()  # Создание таблицы с ошибками, оставленными пользователями
     db_technikal.create_db()  # Создание таблицы с технической информацией для действий пользователя со генерированным изображением
     db_tech_image.create_db() # Создать таблицу с технической информацией для сохранения фото
+    db_check_like.create_db() # Создать таблицу для проверки, какие изображения были уже лайкнуты
 
     logging.info('START BOT')
     executor.start_polling(dp, skip_updates=True)
