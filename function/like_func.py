@@ -83,3 +83,35 @@ async def repeat_shown_image(call: types.CallbackQuery):
     current_number += 1
     # Записать новое значение в БД
     db_tech_image.add_current_number(call.from_user.id, current_number)
+
+# Поставить лайк текущему изображению просматриваемым пользователем
+async def send_like_image(call: types.CallbackQuery):
+    # data_image[current_number][0] - имя файла data_image[current_number][1] - папка где файл хранится
+    # Получить значение текущей записи, чтобы потом увеличить его и перезаписать в БД
+    current_number = db_tech_image.get_current_number(call.from_user.id)
+    # Уменьшаем значение на 1, т.к. при просмотре этот параметр уже увеличился на 1
+    current_number -= 1
+    data_image = db_photo.get_all_image()
+    # Получить текущее значение лайков
+    current_like = db_rating.get_like_current(call.from_user.id, data_image[current_number][0])
+    # Увеличить значение лайка на один
+    current_like += 1
+    # Записать новое значение лайка в БД
+    db_rating.send_like_image(call.from_user.id, data_image[current_number][0], current_like)
+    logging.info(f'Like is set image {data_image[current_number][0]} User: {call.from_user.id}')
+    await call.message.answer(text=text_answer.STYLE_SUSSCES,
+                              parse_mode='HTML')
+
+# Сохранение фото при пролистывании всех изображений
+async def save_like_image(call: types.CallbackQuery):
+    # Получить текущее фото для сохранения
+    current_number = db_tech_image.get_current_number(call.from_user.id)
+    # Уменьшаем значение на 1, т.к. при просмотре этот параметр уже увеличился на 1
+    current_number -= 1
+    data_image = db_photo.get_all_image()
+    logging.info(f'Save image like {data_image[current_number][0]} User: {call.from_user.id}')
+    path_local = f'D:/Рабочий стол/Urban University/DIPLOM_project/IMGi_bot/generic_photo_user/{data_image[current_number][1]}/{data_image[current_number][0]}'
+    with open(path_local, mode='rb') as file_image:
+        await bot.send_document(chat_id=call.from_user.id,
+                                document=file_image)
+

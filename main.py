@@ -86,6 +86,10 @@ dp.callback_query_handler(text='exit_main_menu')(like_func.exit_to_main)
 dp.callback_query_handler(text='next_image')(like_func.next_image_like)
 # Реализовать повтор просмотр изображений
 dp.callback_query_handler(text='repeat_image_like')(like_func.repeat_shown_image)
+# Реализация лайка для изображения конкретным пользователем
+dp.callback_query_handler(text='like_image')(like_func.send_like_image)
+# Сохранить изображение при просмотре всех фотографий
+dp.callback_query_handler(text='save_like_image')(like_func.save_like_image)
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
     db_set_img.create_db()  # Создание таблицы с настройками генерации фото

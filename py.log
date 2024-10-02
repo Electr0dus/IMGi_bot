@@ -1,14 +1,7 @@
-2024-10-02 20:58:58,177 | INFO | START BOT
-2024-10-02 20:58:58,420 | INFO | Bot: IMGAi [@imagesAI_bot]
-2024-10-02 20:58:58,572 | WARNING | Updates were skipped successfully.
-2024-10-02 20:58:58,572 | INFO | Start polling.
-2024-10-02 20:59:01,352 | INFO | Open like image User: 678552784
-2024-10-02 20:59:30,620 | INFO | START generation image
-2024-10-02 20:59:30,768 | INFO | There are still requests left - 20
-2024-10-02 20:59:40,860 | INFO | There are still requests left - 19
-2024-10-02 20:59:50,935 | INFO | There are still requests left - 18
-2024-10-02 20:59:51,093 | INFO | Successfully generate generic_photo_user/678552784/cat.png
-2024-10-02 21:01:00,484 | INFO | The image cat.png was saved successfully
-2024-10-02 21:01:02,296 | INFO | Open like image User: 678552784
-2024-10-02 21:01:23,926 | INFO | Stop polling...
-2024-10-02 21:01:23,926 | WARNING | Goodbye!
+2024-10-02 22:19:33,236 | INFO | START BOT
+2024-10-02 22:19:33,409 | INFO | Bot: IMGAi [@imagesAI_bot]
+2024-10-02 22:19:33,531 | WARNING | Updates were skipped successfully.
+2024-10-02 22:19:33,531 | INFO | Start polling.
+2024-10-02 22:19:36,469 | INFO | Open like image User: 678552784
+2024-10-02 22:20:45,337 | INFO | Stop polling...
+2024-10-02 22:20:45,338 | WARNING | Goodbye!
