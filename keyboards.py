@@ -52,3 +52,14 @@ kb_cancel_sh = InlineKeyboardMarkup(inline_keyboard=[
 kb_open_image = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Скачать💾', callback_data='save_image_shown'), InlineKeyboardButton(text='Отмена🚫', callback_data='cancel_save_image')]
 ], resize_keyboard=True)
+
+# Клавиатура для оценки изображения
+kb_like_image = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='Лайк👍', callback_data='like_image'), InlineKeyboardButton(text='Скачать💾', callback_data='save_like_image')],
+    [InlineKeyboardButton(text='Далее➡️', callback_data='next_image'), InlineKeyboardButton(text='Выход🔙', callback_data='exit_main_menu')]
+], resize_keyboard=True)
+
+# Клавиатура для последнего выведенного изображения
+kb_ending_image = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='Начать заново♻️', callback_data='repeat_image_like'), InlineKeyboardButton(text='Выход🔙', callback_data='exit_main_menu')]
+], resize_keyboard=True)

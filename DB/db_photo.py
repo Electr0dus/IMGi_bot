@@ -33,9 +33,23 @@ def get_all_photo(id_name: int):
     cursor.execute('SELECT name_photo FROM Photo WHERE id_user = ?', (id_name,))
     conn.commit()
     all_photo = cursor.fetchall()
-    return all_photo # all_photo[0]
+    return all_photo
 
 # Сохранить имя сгенерированного фото с id пользователем
 def save_image(id_user: int, name_photo: str):
     cursor.execute('INSERT INTO Photo (id_user, name_photo) VALUES (?, ?)', (id_user, name_photo))
     conn.commit()
+
+# Получить список всех фото вместе с пользователями для вывода каждого для оценки
+def get_all_image():
+    cursor.execute('SELECT * FROM Photo')
+    conn.commit()
+    all_image = cursor.fetchall()
+    return all_image
+
+# Получить общее кол-во фотографий пользователей
+def get_all_count():
+    cursor.execute('SELECT count(*) FROM Photo')
+    conn.commit()
+    all_count = cursor.fetchone()[0]
+    return all_count

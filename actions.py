@@ -18,3 +18,4 @@ class NegativePromptAction(StatesGroup):
 # Машина состояния для получения имени файла изображения
 class ShownImageActions(StatesGroup):
     name_image = State()
+

@@ -5,7 +5,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 import actions
 import config
-from IMGi_bot.function import reg_func, setting_func, shown_func
+from IMGi_bot.function import reg_func, setting_func, shown_func, like_func
 from IMGi_bot.DB import db_error, db_rating, db_photo, db_user, db_set_img, db_technikal, db_tech_image
 
 bot = Bot(config.BOT_TOKEN)
@@ -78,6 +78,14 @@ dp.callback_query_handler(state=actions.ShownImageActions.name_image, text='canc
 dp.callback_query_handler(text='cancel_save_image')(shown_func.cancel_current_image)
 # Сохранение изображения на устройство
 dp.callback_query_handler(text='save_image_shown')(shown_func.save_current_image)
+# Оценить изображение
+dp.message_handler(text=['Оценить изображения🗳'])(like_func.like_image)
+# Выход в основное меню из оценки изображений
+dp.callback_query_handler(text='exit_main_menu')(like_func.exit_to_main)
+# Реализация пролистывания фотографий дальше
+dp.callback_query_handler(text='next_image')(like_func.next_image_like)
+# Реализовать повтор просмотр изображений
+dp.callback_query_handler(text='repeat_image_like')(like_func.repeat_shown_image)
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
     db_set_img.create_db()  # Создание таблицы с настройками генерации фото
