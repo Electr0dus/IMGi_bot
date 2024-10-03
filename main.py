@@ -5,7 +5,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 import actions
 import config
-from IMGi_bot.function import reg_func, setting_func, shown_func, like_func, raiting_func, error_func
+from IMGi_bot.function import reg_func, setting_func, shown_func, like_func, raiting_func, error_func, about_func
 from IMGi_bot.DB import db_error, db_rating, db_photo, db_user, db_set_img, db_technikal, db_tech_image, db_check_like
 
 bot = Bot(config.BOT_TOKEN)
@@ -102,6 +102,8 @@ dp.callback_query_handler(text='third_place')(raiting_func.shown_third_place)
 dp.message_handler(text=['Сообщить об ошибке❌'])(error_func.actions_error_user)
 # Машина состояний для записи ошибки в БД
 dp.message_handler(state=actions.ErrorActions.message_error)(error_func.write_error_user)
+# Информация о боте
+dp.message_handler(text=['Информация о ботеℹ️'])(about_func.about_info_bot)
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
     db_set_img.create_db()  # Создание таблицы с настройками генерации фото
