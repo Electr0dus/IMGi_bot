@@ -38,3 +38,10 @@ def get_like_current(id_user, name_photo):
 def send_like_image(id_user, name_photo, like):
     cursor.execute('UPDATE Rating SET like = ? WHERE id_user = ? AND name_photo = ?', (like, id_user, name_photo,))
     conn.commit()
+
+# Получить максимальное значение в таблице лайков. Указав в параметр 0 - первое место 1 - второе место 2 - третье место
+def get_max_like(sw_place: int):
+    cursor.execute('SELECT * FROM Rating WHERE like = (SELECT (MAX(like) - ?) FROM Rating)', (sw_place,))
+    conn.commit()
+    data_max_like = cursor.fetchall()
+    return data_max_like

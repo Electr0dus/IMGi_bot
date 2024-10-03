@@ -5,7 +5,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 import actions
 import config
-from IMGi_bot.function import reg_func, setting_func, shown_func, like_func
+from IMGi_bot.function import reg_func, setting_func, shown_func, like_func, raiting_func
 from IMGi_bot.DB import db_error, db_rating, db_photo, db_user, db_set_img, db_technikal, db_tech_image, db_check_like
 
 bot = Bot(config.BOT_TOKEN)
@@ -90,6 +90,14 @@ dp.callback_query_handler(text='repeat_image_like')(like_func.repeat_shown_image
 dp.callback_query_handler(text='like_image')(like_func.send_like_image)
 # Сохранить изображение при просмотре всех фотографий
 dp.callback_query_handler(text='save_like_image')(like_func.save_like_image)
+# Предоставления выбора места изображения
+dp.message_handler(text=['Рейтинг изображений🥇'])(raiting_func.switch_rating_image)
+# Показать изображения первого места
+dp.callback_query_handler(text='first_place')(raiting_func.shown_first_place)
+# Показать изображения второго места
+dp.callback_query_handler(text='second_place')(raiting_func.shown_second_place)
+# Показать изображения третьего места
+dp.callback_query_handler(text='third_place')(raiting_func.shown_third_place)
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
     db_set_img.create_db()  # Создание таблицы с настройками генерации фото
