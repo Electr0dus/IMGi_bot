@@ -1,5 +1,6 @@
 from aiogram.dispatcher.filters.state import State, StatesGroup
 
+
 # Машина состояния для регистрации пользователей
 class RegisterAction(StatesGroup):
     username = State()
@@ -15,7 +16,12 @@ class GenerateAction(StatesGroup):
 class NegativePromptAction(StatesGroup):
     negative_prompt = State()
 
+
 # Машина состояния для получения имени файла изображения
 class ShownImageActions(StatesGroup):
     name_image = State()
 
+
+# Машина состония для записи об ошибках пользователем
+class ErrorActions(StatesGroup):
+    message_error = State()
