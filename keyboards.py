@@ -77,3 +77,8 @@ kb_switch_rating = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='🥈', callback_data='second_place')],
     [InlineKeyboardButton(text='🥉', callback_data='third_place')]
 ], resize_keyboard=True)
+
+# Клавиатура для выхода из сообщение ошибки
+kb_exit_error = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='Выход🔙', callback_data='exit_error')]
+], resize_keyboard=True)

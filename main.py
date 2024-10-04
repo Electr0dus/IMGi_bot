@@ -102,6 +102,8 @@ dp.callback_query_handler(text='third_place')(raiting_func.shown_third_place)
 dp.message_handler(text=['Сообщить об ошибке❌'])(error_func.actions_error_user)
 # Машина состояний для записи ошибки в БД
 dp.message_handler(state=actions.ErrorActions.message_error)(error_func.write_error_user)
+# Выйти из меню записи ошибки
+dp.callback_query_handler(state=actions.ErrorActions.message_error, text='exit_error')(error_func.exit_to_main)
 # Информация о боте
 dp.message_handler(text=['Информация о ботеℹ️'])(about_func.about_info_bot)
 def main():
