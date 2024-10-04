@@ -1,22 +1,9 @@
-2024-10-04 20:12:04,281 | INFO | START BOT
-2024-10-04 20:12:04,534 | INFO | Bot: IMGAi [@imagesAI_bot]
-2024-10-04 20:12:04,712 | WARNING | Updates were skipped successfully.
-2024-10-04 20:12:04,712 | INFO | Start polling.
-2024-10-04 20:12:17,206 | WARNING | Add ERROR User 678552784
-2024-10-04 20:12:29,970 | WARNING | Exit ERROR User 678552784
-2024-10-04 20:12:42,078 | INFO | START generation image
-2024-10-04 20:12:42,182 | INFO | There are still requests left - 20
-2024-10-04 20:12:52,277 | INFO | There are still requests left - 19
-2024-10-04 20:13:02,346 | INFO | There are still requests left - 18
-2024-10-04 20:13:02,498 | INFO | Successfully generate generic_photo_user/678552784/hnd.png
-2024-10-04 20:13:24,192 | INFO | Image re-engineering 678552784
-2024-10-04 20:13:24,452 | INFO | START generation image
-2024-10-04 20:13:24,567 | INFO | There are still requests left - 20
-2024-10-04 20:13:34,635 | INFO | There are still requests left - 19
-2024-10-04 20:13:44,703 | INFO | There are still requests left - 18
-2024-10-04 20:13:44,952 | INFO | Successfully generate generic_photo_user/678552784/hnd.png
-2024-10-04 20:13:50,910 | INFO | The image hnd.png was saved successfully
-2024-10-04 20:13:56,857 | WARNING | Add ERROR User 678552784
-2024-10-04 20:14:05,167 | WARNING | Exit ERROR User 678552784
-2024-10-04 20:14:22,969 | INFO | Stop polling...
-2024-10-04 20:14:22,970 | WARNING | Goodbye!
+2024-10-04 23:02:45,885 | INFO | START BOT
+2024-10-04 23:02:46,077 | INFO | Bot: IMGAi [@imagesAI_bot]
+2024-10-04 23:02:46,201 | WARNING | Updates were skipped successfully.
+2024-10-04 23:02:46,201 | INFO | Start polling.
+2024-10-04 23:02:52,507 | INFO | GET First place User 678552784
+2024-10-04 23:03:01,696 | INFO | GET Second place User 678552784
+2024-10-04 23:03:04,606 | INFO | GET Third place User 678552784
+2024-10-04 23:03:12,272 | INFO | Stop polling...
+2024-10-04 23:03:12,272 | WARNING | Goodbye!

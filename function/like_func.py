@@ -49,6 +49,7 @@ async def next_image_like(call: types.CallbackQuery):
     current_number = db_tech_image.get_current_number(call.from_user.id)
     max_number_image = db_photo.get_all_count()
     if current_number < max_number_image:
+        await call.message.delete()
         data_image = db_photo.get_all_image()
         path_image = 'D:/Рабочий стол/Urban University/DIPLOM_project/IMGi_bot/generic_photo_user' #Путь для вывода изображений
         # Открыть изображения для просмотра
@@ -61,6 +62,7 @@ async def next_image_like(call: types.CallbackQuery):
         # Записать новое значение в БД
         db_tech_image.add_current_number(call.from_user.id, current_number)
     else: #вывести, что все фото просмотрены и на выбор два действия, начать заново, либо выйти из меню просмотра
+        await call.message.delete()
         await call.message.answer(text=text_answer.ENDING_IMAGE_LIKE,
                                   parse_mode='HTML',
                                   reply_markup=keyboards.kb_ending_image)
