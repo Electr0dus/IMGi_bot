@@ -122,6 +122,16 @@ dp.message_handler(state=actions.AddAdminActions.pswd_admin)(admin_func.endind_a
 dp.message_handler(text=['Удалить админа✖️'])(admin_func.delete_admin)
 # Завершение удаление админа
 dp.message_handler(state=actions.DeleteAdminActions.id_user)(admin_func.endind_delete_admin)
+# Вывести список всех ошибок
+dp.message_handler(text=['Просмотр ошибок🚫'])(admin_func.shown_error)
+# Ответить на ошибку пользователя
+dp.message_handler(text=['Ответить на ошибку📩'])(admin_func.answer_error)
+# Отправить ID ошибки в машину состояний
+dp.message_handler(state=actions.ErrorAnswerActions.id_error)(admin_func.id_error_for_delete)
+# Отправить ответ пользователю об исправлении его ошибки
+dp.message_handler(state=actions.ErrorAnswerActions.id_user)(admin_func.send_answer_user)
+
+
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
     db_set_img.create_db()  # Создание таблицы с настройками генерации фото

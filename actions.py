@@ -40,3 +40,10 @@ class AddAdminActions(StatesGroup):
 # Удалить админа из БД
 class DeleteAdminActions(StatesGroup):
     id_user = State()
+
+
+# Ответить на ошибку
+class ErrorAnswerActions(StatesGroup):
+    id_user = State()
+    id_error = State()
+

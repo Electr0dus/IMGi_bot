@@ -1,8 +1,225 @@
-2024-10-05 15:44:34,735 | INFO | START BOT
-2024-10-05 15:44:34,917 | INFO | Bot: IMGAi [@imagesAI_bot]
-2024-10-05 15:44:35,034 | WARNING | Updates were skipped successfully.
-2024-10-05 15:44:35,034 | INFO | Start polling.
-2024-10-05 15:44:43,462 | INFO | User 678552784 enter to admin panel
-2024-10-05 15:44:49,051 | INFO | User 908892108 was deleted
-2024-10-05 15:45:13,941 | INFO | Stop polling...
-2024-10-05 15:45:13,941 | WARNING | Goodbye!
+2024-10-05 17:58:42,092 | INFO | START BOT
+2024-10-05 17:58:42,294 | INFO | Bot: IMGAi [@imagesAI_bot]
+2024-10-05 17:58:42,428 | WARNING | Updates were skipped successfully.
+2024-10-05 17:58:42,428 | INFO | Start polling.
+2024-10-05 18:00:33,462 | INFO | START generation image
+2024-10-05 18:00:33,579 | INFO | There are still requests left - 20
+2024-10-05 18:00:43,645 | INFO | There are still requests left - 19
+2024-10-05 18:00:53,759 | INFO | There are still requests left - 18
+2024-10-05 18:00:53,890 | INFO | Successfully generate generic_photo_user/678552784/supr.png
+2024-10-05 18:00:58,027 | INFO | Image re-engineering 678552784
+2024-10-05 18:00:58,278 | INFO | START generation image
+2024-10-05 18:00:58,365 | INFO | There are still requests left - 20
+2024-10-05 18:01:08,430 | INFO | There are still requests left - 19
+2024-10-05 18:01:10,923 | INFO | COMMAND "START" username - 610257487
+2024-10-05 18:01:16,120 | INFO | User 610257487 successfully register
+2024-10-05 18:01:18,497 | INFO | There are still requests left - 18
+2024-10-05 18:01:18,650 | INFO | Successfully generate generic_photo_user/678552784/supr.png
+2024-10-05 18:01:22,297 | INFO | The image supr.png was saved successfully
+2024-10-05 18:01:29,244 | INFO | START generation image
+2024-10-05 18:01:29,358 | INFO | There are still requests left - 20
+2024-10-05 18:01:39,421 | INFO | There are still requests left - 19
+2024-10-05 18:01:40,177 | INFO | START generation image
+2024-10-05 18:01:40,266 | INFO | There are still requests left - 20
+2024-10-05 18:01:49,483 | INFO | There are still requests left - 18
+2024-10-05 18:01:49,619 | INFO | Successfully generate generic_photo_user/610257487/Hgg.png
+2024-10-05 18:01:50,337 | INFO | There are still requests left - 19
+2024-10-05 18:02:00,420 | INFO | There are still requests left - 18
+2024-10-05 18:02:00,548 | INFO | Successfully generate generic_photo_user/678552784/impr.png
+2024-10-05 18:02:04,312 | INFO | The image impr.png was saved successfully
+2024-10-05 18:02:07,855 | INFO | Open like image User: 678552784
+2024-10-05 18:02:10,336 | INFO | Like is set image supr.png User: 678552784
+2024-10-05 18:02:14,557 | INFO | Like is set image impr.png User: 678552784
+2024-10-05 18:02:21,981 | INFO | COMMAND "START" username - 1087199829
+2024-10-05 18:02:22,463 | INFO | GET First place User 678552784
+2024-10-05 18:02:33,392 | INFO | User 1087199829 successfully register
+2024-10-05 18:02:56,072 | INFO | The image Hgg.png was saved successfully
+2024-10-05 18:02:59,060 | INFO | User 610257487 scans files
+2024-10-05 18:03:05,191 | INFO | Menu Settings: user 610257487
+2024-10-05 18:03:07,220 | INFO | Setting the style: user 610257487
+2024-10-05 18:03:10,837 | INFO | SET STYLE "ANIME": user 610257487
+2024-10-05 18:03:17,042 | INFO | START generation image
+2024-10-05 18:03:17,134 | INFO | There are still requests left - 20
+2024-10-05 18:03:17,710 | INFO | Bact to main menu: user 610257487
+2024-10-05 18:03:27,210 | INFO | There are still requests left - 19
+2024-10-05 18:03:28,880 | INFO | START generation image
+2024-10-05 18:03:28,964 | INFO | There are still requests left - 20
+2024-10-05 18:03:37,281 | INFO | There are still requests left - 18
+2024-10-05 18:03:37,407 | INFO | Successfully generate generic_photo_user/1087199829/S.png
+2024-10-05 18:03:39,063 | INFO | There are still requests left - 19
+2024-10-05 18:03:42,636 | INFO | The image S.png was saved successfully
+2024-10-05 18:03:49,130 | INFO | There are still requests left - 18
+2024-10-05 18:03:49,254 | INFO | Successfully generate generic_photo_user/610257487/Cot.png
+2024-10-05 18:04:03,310 | INFO | START generation image
+2024-10-05 18:04:03,419 | INFO | There are still requests left - 20
+2024-10-05 18:04:13,494 | INFO | There are still requests left - 19
+2024-10-05 18:04:20,466 | INFO | COMMAND "START" username - 935448874
+2024-10-05 18:04:23,589 | INFO | There are still requests left - 18
+2024-10-05 18:04:23,730 | INFO | Successfully generate generic_photo_user/1087199829/K.png
+2024-10-05 18:04:27,938 | INFO | The image K.png was saved successfully
+2024-10-05 18:04:28,753 | INFO | The image Cot.png was saved successfully
+2024-10-05 18:04:29,447 | INFO | User 935448874 successfully register
+2024-10-05 18:04:33,317 | INFO | GET First place User 610257487
+2024-10-05 18:04:39,375 | INFO | Open like image User: 610257487
+2024-10-05 18:04:41,693 | INFO | Like is set image supr.png User: 610257487
+2024-10-05 18:04:44,877 | INFO | Like is set image impr.png User: 610257487
+2024-10-05 18:04:48,345 | INFO | Like is set image Hgg.png User: 610257487
+2024-10-05 18:04:56,607 | INFO | START generation image
+2024-10-05 18:04:56,703 | INFO | There are still requests left - 20
+2024-10-05 18:05:06,772 | INFO | There are still requests left - 19
+2024-10-05 18:05:16,844 | INFO | There are still requests left - 18
+2024-10-05 18:05:16,994 | INFO | Successfully generate generic_photo_user/1087199829/V.png
+2024-10-05 18:05:17,943 | INFO | START generation image
+2024-10-05 18:05:18,032 | INFO | There are still requests left - 20
+2024-10-05 18:05:24,160 | INFO | The image V.png was saved successfully
+2024-10-05 18:05:28,116 | INFO | There are still requests left - 19
+2024-10-05 18:05:29,753 | INFO | Open like image User: 1087199829
+2024-10-05 18:05:33,516 | INFO | Like is set image supr.png User: 1087199829
+2024-10-05 18:05:38,197 | INFO | There are still requests left - 18
+2024-10-05 18:05:38,321 | INFO | Successfully generate generic_photo_user/610257487/Mine.png
+2024-10-05 18:05:47,227 | INFO | Like is set image S.png User: 1087199829
+2024-10-05 18:05:52,242 | INFO | Like is set image Cot.png User: 1087199829
+2024-10-05 18:05:57,165 | INFO | Like is set image V.png User: 1087199829
+2024-10-05 18:06:14,010 | INFO | GET First place User 1087199829
+2024-10-05 18:06:18,231 | INFO | The image Mine.png was saved successfully
+2024-10-05 18:06:24,025 | INFO | GET Second place User 1087199829
+2024-10-05 18:06:29,141 | INFO | GET Third place User 1087199829
+2024-10-05 18:06:52,750 | INFO | User 1087199829 scans files
+2024-10-05 18:06:57,432 | INFO | GET Second place User 678552784
+2024-10-05 18:07:01,903 | INFO | GET Third place User 678552784
+2024-10-05 18:07:02,251 | INFO | User 1087199829 open file V.png
+2024-10-05 18:07:09,473 | INFO | GET First place User 678552784
+2024-10-05 18:08:28,453 | INFO | START generation image
+2024-10-05 18:08:28,570 | INFO | There are still requests left - 20
+2024-10-05 18:08:38,655 | INFO | There are still requests left - 19
+2024-10-05 18:08:48,707 | INFO | There are still requests left - 18
+2024-10-05 18:08:48,848 | INFO | Successfully generate generic_photo_user/935448874/png.png
+2024-10-05 18:08:54,884 | INFO | The image png.png was saved successfully
+2024-10-05 18:09:16,753 | INFO | User 935448874 scans files
+2024-10-05 18:09:23,594 | INFO | User 935448874 open file png.png
+2024-10-05 18:09:36,990 | INFO | COMMAND "START" username - 5259616728
+2024-10-05 18:09:47,040 | INFO | User 5259616728 successfully register
+2024-10-05 18:09:57,039 | INFO | Open like image User: 935448874
+2024-10-05 18:10:00,689 | INFO | Like is set image supr.png User: 935448874
+2024-10-05 18:10:18,906 | INFO | User 908892108 successfully register
+2024-10-05 18:10:26,445 | WARNING | Invalid file name: /start
+2024-10-05 18:10:27,023 | INFO | Like is set image impr.png User: 935448874
+2024-10-05 18:10:31,335 | INFO | START generation image
+2024-10-05 18:10:31,424 | INFO | There are still requests left - 20
+2024-10-05 18:10:35,424 | INFO | Like is set image Hgg.png User: 935448874
+2024-10-05 18:10:40,485 | INFO | COMMAND "START" username - 1801760204
+2024-10-05 18:10:41,497 | INFO | There are still requests left - 19
+2024-10-05 18:10:51,581 | INFO | There are still requests left - 18
+2024-10-05 18:10:51,753 | INFO | Successfully generate generic_photo_user/908892108/роо.png
+2024-10-05 18:10:55,098 | INFO | GET First place User 935448874
+2024-10-05 18:10:55,278 | INFO | The image роо.png was saved successfully
+2024-10-05 18:10:58,138 | INFO | User 1801760204 successfully register
+2024-10-05 18:11:05,249 | INFO | User 1801760204 scans files
+2024-10-05 18:11:07,639 | INFO | START generation image
+2024-10-05 18:11:07,731 | INFO | There are still requests left - 20
+2024-10-05 18:11:17,791 | INFO | There are still requests left - 19
+2024-10-05 18:11:22,000 | INFO | File V.png downloaded successfully User: 1087199829
+2024-10-05 18:11:27,872 | INFO | There are still requests left - 18
+2024-10-05 18:11:27,998 | INFO | Successfully generate generic_photo_user/908892108/juj.png
+2024-10-05 18:11:31,765 | INFO | Canceling photo saving user - 908892108
+2024-10-05 18:11:31,765 | INFO | The image was deleted successfully juj.png
+2024-10-05 18:11:48,620 | INFO | START generation image
+2024-10-05 18:11:48,741 | INFO | There are still requests left - 20
+2024-10-05 18:11:48,946 | INFO | START generation image
+2024-10-05 18:11:49,042 | INFO | There are still requests left - 20
+2024-10-05 18:11:58,811 | INFO | There are still requests left - 19
+2024-10-05 18:11:59,107 | INFO | There are still requests left - 19
+2024-10-05 18:12:08,895 | INFO | There are still requests left - 18
+2024-10-05 18:12:09,057 | INFO | Successfully generate generic_photo_user/908892108/длл.png
+2024-10-05 18:12:09,173 | INFO | There are still requests left - 18
+2024-10-05 18:12:09,321 | INFO | Successfully generate generic_photo_user/1801760204/foto.png
+2024-10-05 18:12:12,017 | INFO | Image re-engineering 908892108
+2024-10-05 18:12:12,235 | INFO | START generation image
+2024-10-05 18:12:12,345 | INFO | There are still requests left - 20
+2024-10-05 18:12:20,416 | WARNING | Invalid file name: pdf
+2024-10-05 18:12:22,426 | INFO | There are still requests left - 19
+2024-10-05 18:12:32,490 | INFO | There are still requests left - 18
+2024-10-05 18:12:32,624 | INFO | Successfully generate generic_photo_user/908892108/длл.png
+2024-10-05 18:12:35,991 | INFO | START generation image
+2024-10-05 18:12:36,085 | INFO | There are still requests left - 20
+2024-10-05 18:12:36,566 | INFO | The image длл.png was saved successfully
+2024-10-05 18:12:41,328 | INFO | Canceling photo saving user - 1801760204
+2024-10-05 18:12:41,328 | INFO | The image was deleted successfully foto.png
+2024-10-05 18:12:44,308 | INFO | User 908892108 scans files
+2024-10-05 18:12:46,153 | INFO | There are still requests left - 19
+2024-10-05 18:12:52,683 | INFO | User 908892108 the file does not exist poo.png
+2024-10-05 18:12:56,237 | INFO | There are still requests left - 18
+2024-10-05 18:12:56,355 | INFO | Successfully generate generic_photo_user/5259616728/myFile.png
+2024-10-05 18:13:00,223 | INFO | The image myFile.png was saved successfully
+2024-10-05 18:13:05,228 | INFO | User 5259616728 scans files
+2024-10-05 18:13:06,979 | INFO | START generation image
+2024-10-05 18:13:07,090 | INFO | There are still requests left - 20
+2024-10-05 18:13:17,154 | INFO | There are still requests left - 19
+2024-10-05 18:13:19,641 | INFO | User 5259616728 open file myFile.png
+2024-10-05 18:13:27,214 | INFO | There are still requests left - 18
+2024-10-05 18:13:27,329 | INFO | Successfully generate generic_photo_user/1801760204/foto.png
+2024-10-05 18:13:36,088 | INFO | GET First place User 5259616728
+2024-10-05 18:13:42,056 | INFO | GET Second place User 5259616728
+2024-10-05 18:13:45,668 | INFO | GET Third place User 5259616728
+2024-10-05 18:13:46,735 | INFO | Canceling photo saving user - 1801760204
+2024-10-05 18:13:46,735 | INFO | The image was deleted successfully foto.png
+2024-10-05 18:14:06,624 | INFO | START generation image
+2024-10-05 18:14:06,747 | INFO | There are still requests left - 20
+2024-10-05 18:14:16,818 | INFO | There are still requests left - 19
+2024-10-05 18:14:22,198 | INFO | COMMAND "START" username - 1467809776
+2024-10-05 18:14:26,907 | INFO | There are still requests left - 18
+2024-10-05 18:14:27,021 | INFO | Successfully generate generic_photo_user/1801760204/foto.png
+2024-10-05 18:14:36,702 | INFO | Canceling photo saving user - 1801760204
+2024-10-05 18:14:36,702 | INFO | The image was deleted successfully foto.png
+2024-10-05 18:14:37,892 | WARNING | This file is already in the database: myFile.png
+2024-10-05 18:14:53,011 | INFO | START generation image
+2024-10-05 18:14:53,097 | INFO | There are still requests left - 20
+2024-10-05 18:15:03,171 | INFO | There are still requests left - 19
+2024-10-05 18:15:03,673 | INFO | User 1467809776 successfully register
+2024-10-05 18:15:13,237 | INFO | There are still requests left - 18
+2024-10-05 18:15:13,428 | INFO | Successfully generate generic_photo_user/5259616728/1myFile.png
+2024-10-05 18:15:20,592 | INFO | The image 1myFile.png was saved successfully
+2024-10-05 18:15:26,789 | WARNING | Invalid file name: .
+2024-10-05 18:15:31,299 | WARNING | Invalid file name: один
+2024-10-05 18:15:47,363 | WARNING | Invalid file name: 12 .png
+2024-10-05 18:15:56,740 | INFO | START generation image
+2024-10-05 18:15:56,855 | INFO | There are still requests left - 20
+2024-10-05 18:16:02,941 | WARNING | Invalid file name: my file.png
+2024-10-05 18:16:06,926 | INFO | There are still requests left - 19
+2024-10-05 18:16:11,706 | INFO | START generation image
+2024-10-05 18:16:11,797 | INFO | There are still requests left - 20
+2024-10-05 18:16:17,012 | INFO | There are still requests left - 18
+2024-10-05 18:16:17,147 | INFO | Successfully generate generic_photo_user/5259616728/2myFile.png
+2024-10-05 18:16:21,870 | INFO | There are still requests left - 19
+2024-10-05 18:16:31,926 | INFO | There are still requests left - 18
+2024-10-05 18:16:32,049 | INFO | Successfully generate generic_photo_user/1467809776/Myfile.png
+2024-10-05 18:22:39,486 | INFO | GET Third place User 678552784
+2024-10-05 18:26:33,486 | INFO | START generation image
+2024-10-05 18:26:33,601 | INFO | There are still requests left - 20
+2024-10-05 18:26:43,673 | INFO | There are still requests left - 19
+2024-10-05 18:26:53,731 | INFO | There are still requests left - 18
+2024-10-05 18:26:53,865 | INFO | Successfully generate generic_photo_user/678552784/prog.png
+2024-10-05 18:26:59,732 | INFO | Image re-engineering 678552784
+2024-10-05 18:26:59,994 | INFO | START generation image
+2024-10-05 18:27:00,083 | INFO | There are still requests left - 20
+2024-10-05 18:27:10,145 | INFO | There are still requests left - 19
+2024-10-05 18:27:20,231 | INFO | There are still requests left - 18
+2024-10-05 18:27:20,523 | INFO | Successfully generate generic_photo_user/678552784/prog.png
+2024-10-05 18:27:44,311 | INFO | Canceling photo saving user - 678552784
+2024-10-05 18:27:44,311 | INFO | The image was deleted successfully prog.png
+2024-10-05 18:27:47,538 | INFO | Menu Settings: user 678552784
+2024-10-05 18:27:57,136 | INFO | SET NEGATIVE PROMPT: user 678552784
+2024-10-05 18:27:58,504 | INFO | Bact to main menu: user 678552784
+2024-10-05 18:28:09,239 | INFO | START generation image
+2024-10-05 18:28:09,325 | INFO | There are still requests left - 20
+2024-10-05 18:28:19,375 | INFO | There are still requests left - 19
+2024-10-05 18:28:29,444 | INFO | There are still requests left - 18
+2024-10-05 18:28:29,583 | INFO | Successfully generate generic_photo_user/678552784/prog.png
+2024-10-05 18:28:56,082 | INFO | The image prog.png was saved successfully
+2024-10-05 18:44:39,302 | INFO | User 678552784 scans files
+2024-10-05 18:44:42,199 | INFO | Open like image User: 678552784
+2024-10-05 18:45:07,035 | INFO | GET First place User 678552784
+2024-10-05 18:45:10,207 | INFO | GET Second place User 678552784
+2024-10-05 18:45:13,043 | INFO | GET Third place User 678552784
+2024-10-05 18:45:20,779 | INFO | Stop polling...
+2024-10-05 18:45:20,780 | WARNING | Goodbye!
