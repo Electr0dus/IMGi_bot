@@ -55,7 +55,6 @@ def get_max_like(sw_place: int):
     # data_max_like[1] - второе место
     # data_max_like[2] - третье место
     # Для первого места
-    print(data_max_like)
     if sw_place == 1:
         cursor.execute('SELECT * FROM Rating WHERE like = ?', (data_max_like[0][1],))
         data_first = cursor.fetchall()
