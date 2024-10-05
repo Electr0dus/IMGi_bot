@@ -5,8 +5,8 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 import actions
 import config
-from IMGi_bot.function import reg_func, setting_func, shown_func, like_func, raiting_func, error_func, about_func
-from IMGi_bot.DB import db_error, db_rating, db_photo, db_user, db_set_img, db_technikal, db_tech_image, db_check_like
+from IMGi_bot.function import reg_func, setting_func, shown_func, like_func, raiting_func, error_func, about_func, admin_func
+from IMGi_bot.DB import db_error, db_rating, db_photo, db_user, db_set_img, db_technikal, db_tech_image, db_check_like, db_admin
 
 bot = Bot(config.BOT_TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
@@ -106,6 +106,22 @@ dp.message_handler(state=actions.ErrorActions.message_error)(error_func.write_er
 dp.callback_query_handler(state=actions.ErrorActions.message_error, text='exit_error')(error_func.exit_to_main)
 # Информация о боте
 dp.message_handler(text=['Информация о ботеℹ️'])(about_func.about_info_bot)
+# Вход в админ панель
+dp.message_handler(commands=['admin'])(admin_func.connect_to_admin)
+# Проверка пароля для входа в админ панель
+dp.message_handler(state=actions.AdminPanelActions.input_pswd)(admin_func.check_password_actions)
+# Выход из админ панели
+dp.message_handler(text=['Выйти🔙'])(admin_func.exit_admin_panel)
+# Добавить админа
+dp.message_handler(text=['Добавить админа➕'])(admin_func.add_admin)
+# Ввод пароля для админа
+dp.message_handler(state=actions.AddAdminActions.id_user)(admin_func.input_pswd_to_admin)
+# Завершение добавление админа
+dp.message_handler(state=actions.AddAdminActions.pswd_admin)(admin_func.endind_add_admin)
+# Удаление админа
+dp.message_handler(text=['Удалить админа✖️'])(admin_func.delete_admin)
+# Завершение удаление админа
+dp.message_handler(state=actions.DeleteAdminActions.id_user)(admin_func.endind_delete_admin)
 def main():
     db_user.create_db()  # Создание таблицы с пользователем
     db_set_img.create_db()  # Создание таблицы с настройками генерации фото
@@ -115,7 +131,7 @@ def main():
     db_technikal.create_db()  # Создание таблицы с технической информацией для действий пользователя со генерированным изображением
     db_tech_image.create_db() # Создать таблицу с технической информацией для сохранения фото
     db_check_like.create_db() # Создать таблицу для проверки, какие изображения были уже лайкнуты
-
+    db_admin.create_db() # Создать таблицу для админ панели
     logging.info('START BOT')
     executor.start_polling(dp, skip_updates=True)
 

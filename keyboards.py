@@ -82,3 +82,10 @@ kb_switch_rating = InlineKeyboardMarkup(inline_keyboard=[
 kb_exit_error = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Выход🔙', callback_data='exit_error')]
 ], resize_keyboard=True)
+
+# Клавиатура админ панели
+kb_admin_panel = ReplyKeyboardMarkup(keyboard=[
+    [KeyboardButton(text='Добавить админа➕'), KeyboardButton(text='Удалить админа✖️')],
+    [KeyboardButton(text='Просмотр ошибок🚫'), KeyboardButton(text='Ответить на ошибку📩')],
+    [KeyboardButton(text='Выйти🔙')]
+], resize_keyboard=True)

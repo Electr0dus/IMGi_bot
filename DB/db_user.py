@@ -39,3 +39,10 @@ def get_name_for_id(id_user: str):
     conn.commit()
     data = cursor.fetchall()
     return data[0]
+
+# Получить список всех пользователей
+def get_all_user():
+    cursor.execute('SELECT * FROM Users')
+    conn.commit()
+    data = cursor.fetchall()
+    return data

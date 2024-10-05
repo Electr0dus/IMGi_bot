@@ -4,7 +4,6 @@ from aiogram import types, Bot
 
 from IMGi_bot import actions
 from IMGi_bot import config
-from IMGi_bot import getIMG
 from IMGi_bot import keyboards
 from IMGi_bot import text_answer
 from IMGi_bot.DB import db_error
