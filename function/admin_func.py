@@ -88,7 +88,7 @@ async def endind_delete_admin(message: types.Message, state):
     db_admin.delete_admin(data_id['id_user'])
     logging.info(f"User {data_id['id_user']} was deleted")
     await message.answer(text=f"<b>Пользователь <em>{data_id['id_user']}</em>"
-                              f" успешно удалён✅</b>", parse_mode='HTML', reply_markup=keyboards.kb_main_menu)
+                              f" успешно удалён✅</b>", parse_mode='HTML', reply_markup=keyboards.kb_admin_panel)
     await state.finish()
 
 
