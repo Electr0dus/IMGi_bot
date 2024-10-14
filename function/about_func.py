@@ -2,11 +2,8 @@ import logging
 
 from aiogram import types, Bot
 
-
-from IMGi_bot import config
-
-
-from IMGi_bot import text_answer
+import config
+import text_answer
 
 
 bot = Bot(config.BOT_TOKEN)
