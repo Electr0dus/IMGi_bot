@@ -5,8 +5,8 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 import actions
 import config
-from IMGi_bot.function import reg_func, setting_func, shown_func, like_func, raiting_func, error_func, about_func, admin_func
-from IMGi_bot.DB import db_error, db_rating, db_photo, db_user, db_set_img, db_technikal, db_tech_image, db_check_like, db_admin
+from function import reg_func, setting_func, shown_func, like_func, raiting_func, error_func, about_func, admin_func
+from DB import db_error, db_rating, db_photo, db_user, db_set_img, db_technikal, db_tech_image, db_check_like, db_admin
 
 bot = Bot(config.BOT_TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
