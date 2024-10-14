@@ -2,12 +2,12 @@ import logging
 
 from aiogram import types, Bot
 
-from IMGi_bot import actions
-from IMGi_bot import config
-from IMGi_bot import getIMG
-from IMGi_bot import keyboards
-from IMGi_bot import text_answer
-from IMGi_bot.DB import db_error, db_admin, db_user
+import actions
+import config
+import getIMG
+import keyboards
+import text_answer
+from DB import db_error, db_admin, db_user
 
 bot = Bot(config.BOT_TOKEN)
 
