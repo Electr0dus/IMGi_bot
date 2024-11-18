@@ -17,4 +17,3 @@
 5. В файле <b>config.py</b> заменить <b>BOT_TOKEN</b> на свой;<br>
 6. Открыть файл <b>main.py</b> и запустить скрипт!
 
-<video src='https://vk.com/video118331657_456239446' width=180/>
