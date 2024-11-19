@@ -17,4 +17,7 @@
 5. В файле <b>config.py</b> заменить <b>BOT_TOKEN</b> на свой;<br>
 6. Открыть файл <b>main.py</b> и запустить скрипт!
 
-<video src='https://github.com/Electr0dus/IMGi_bot/blob/main/Bot.mp4'>
+<b>Видео работы бота!<b><br>
+
+https://github.com/user-attachments/assets/e87b4ac5-386f-4aa3-b326-d2b6803b8daf
+
